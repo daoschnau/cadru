@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;}
+  @keyframes cadruFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="--accent:#2f6b4f;--accent-soft:#7cc59c;background:#f7f5f0;color:#1c1b18;font-family:'IBM Plex Sans',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden">
+
+  <header id="top" style="position:sticky;top:0;z-index:50;background:rgba(247,245,240,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+        <span style="width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block"></span>
+        <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;letter-spacing:-0.01em">Cadru</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,28px);font-size:15px;flex-wrap:wrap">
+        <a href="#produs" style="color:#3a3833;text-decoration:none" style-hover="color:var(--accent)">Produsul</a>
+        <a href="#cum" style="color:#3a3833;text-decoration:none" style-hover="color:var(--accent)">Cum funcționează</a>
+        <a href="#abordare" style="color:#3a3833;text-decoration:none" style-hover="color:var(--accent)">Abordarea</a>
+        <a href="#jurnal" style="color:#3a3833;text-decoration:none" style-hover="color:var(--accent)">Jurnal</a>
+      </nav>
+      <a href="#acces" style="padding:9px 17px;border-radius:8px;background:#1c1b18;color:#f7f5f0;text-decoration:none;font-weight:500;font-size:14px;white-space:nowrap;transition:opacity .2s" style-hover="opacity:0.85">Acces anticipat</a>
+    </div>
+  </header>
+
+  <section style="max-width:1140px;margin:0 auto;padding:clamp(46px,7vw,88px) clamp(20px,5vw,40px) clamp(40px,6vw,68px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(34px,5vw,64px);align-items:center">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">CLM pentru echipe mici</div>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(34px,5.2vw,58px);line-height:1.04;letter-spacing:-0.015em;margin:0 0 22px;text-wrap:balance">Contracte sub control — fără un departament juridic întreg.</h1>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.62;color:#4a473f;margin:0 0 30px;max-width:520px">Cadru reunește o bază de date, formulare de completare, șabloane de contracte și automatizări care toarnă datele în document. Ordine și disciplină — nu încă un software complicat.</p>
+      <div id="acces" style="scroll-margin-top:90px">
+        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ join }}" style="display:flex;gap:10px;flex-wrap:wrap;max-width:480px">
+            <input type="hidden" name="_subject" value="Cadru — acces anticipat (hero)"/>
+            <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 230px;min-width:0;padding:14px 16px;border:1px solid #d8d3c8;border-radius:9px;font-size:16px;font-family:inherit;background:#fff;color:#1c1b18;outline:none" style-focus="border-color:var(--accent)"/>
+            <button type="submit" style="padding:14px 22px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer;white-space:nowrap;transition:transform .15s" style-hover="transform:translateY(-1px)">Solicită acces anticipat</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:11px;padding:15px 18px;background:rgba(47,107,79,0.08);border:1px solid rgba(47,107,79,0.25);border-radius:10px;max-width:480px">
+            <span style="color:var(--accent);font-size:18px">✓</span>
+            <span style="font-size:15px;color:#3a3833">Te-am adăugat pe listă. Îți scriem când deschidem accesul.</span>
+          </div>
+        </sc-if>
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8a857a;margin:15px 0 0">Produsul e în dezvoltare. Lasă-ți emailul — te anunțăm primii.</p>
+    </div>
+
+    <sc-if value="{{ showMockup }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border:1px solid #e4e0d8;border-radius:15px;box-shadow:0 28px 64px -32px rgba(28,27,24,0.4);overflow:hidden">
+        <div style="display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid #eee7da;background:#faf8f3">
+          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
+          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
+          <span style="margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9b968a">cadru — contracte</span>
+        </div>
+        <div style="display:grid;grid-template-columns:118px 1fr;min-height:248px">
+          <div style="border-right:1px solid #f0ebe0;padding:15px 13px;display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:#6b6862">
+            <div style="color:var(--accent);font-weight:600;display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block"></span>Clienți</div>
+            <div>Contracte</div>
+            <div>Șabloane</div>
+            <div>Termene</div>
+          </div>
+          <div style="padding:14px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Vega Trans S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);background:rgba(47,107,79,0.09);padding:2px 8px;border-radius:5px">activ</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Acme Trade S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#a08a3a;background:rgba(160,138,58,0.1);padding:2px 8px;border-radius:5px">draft</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Nord Servicii S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);background:rgba(47,107,79,0.09);padding:2px 8px;border-radius:5px">activ</span></div>
+            <button style="margin-top:6px;align-self:flex-start;padding:9px 15px;border:none;border-radius:8px;background:#1c1b18;color:#f7f5f0;font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:default">Compune contract →</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+
+  <section style="border-top:1px solid #e4e0d8;background:#ffffff">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(60px,8vw,108px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#9b968a;margin-bottom:18px">01 — Problema</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 22px;max-width:780px;text-wrap:balance">Haosul nu trimite factura imediat. O plătești peste un an.</h2>
+      <p style="font-size:clamp(16px,1.4vw,18px);line-height:1.62;color:#4a473f;margin:0 0 46px;max-width:680px">Contracte împrăștiate, copy-paste, cereri pe hol. Aceeași variabilă numită diferit, același concept cu definiții diferite. E datorie tehnică — doar că în contracte dobânda se vede târziu.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(18px,2.5vw,32px)">
+        <div style="border-top:2px solid #1c1b18;padding-top:18px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px">Contracte împrăștiate</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0">Unde e ultima versiune? Pe email, pe desktop, la coleg. Nimeni nu e sigur.</p></div>
+        <div style="border-top:2px solid #1c1b18;padding-top:18px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px">Copy-paste</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0">Aceeași sumă scrisă de două ori, una greșită. Câmpuri uitate, nume amestecate.</p></div>
+        <div style="border-top:2px solid #1c1b18;padding-top:18px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px">Termene scăpate</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0">Nimeni nu urmărește scadențele până nu e deja prea târziu să reacționezi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produs" style="scroll-margin-top:80px;background:#f7f5f0">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(60px,8vw,108px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">02 — Produsul</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 18px;max-width:760px">Patru piese care lucrează împreună.</h2>
+      <p style="font-size:clamp(16px,1.4vw,18px);line-height:1.62;color:#4a473f;margin:0 0 46px;max-width:640px">Nimic magic. Patru lucruri simple, conectate, care fac munca repetitivă în locul tău.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:clamp(16px,2vw,22px)">
+        <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:16px">01</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Bază de date</h3><p style="font-size:14.5px;line-height:1.55;color:#6b6862;margin:0">Clienți, contracte, termene — o singură sursă de adevăr. Datele rămân la tine, local.</p></div>
+        <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:16px">02</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Formulare</h3><p style="font-size:14.5px;line-height:1.55;color:#6b6862;margin:0">Introduci datele o singură dată, structurat. Fără copy-paste, fără câmpuri uitate.</p></div>
+        <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:16px">03</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Șabloane</h3><p style="font-size:14.5px;line-height:1.55;color:#6b6862;margin:0">Contracte modulare: contract-cadru + condiții speciale. Scrise curat, o singură dată.</p></div>
+        <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:16px">04</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Automatizări</h3><p style="font-size:14.5px;line-height:1.55;color:#6b6862;margin:0">Coduri deterministe completează contractul din bază. De fiecare dată identic, în secunde.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cum" style="scroll-margin-top:80px;border-top:1px solid #e4e0d8;background:#ffffff">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(60px,8vw,108px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#9b968a;margin-bottom:18px">03 — Cum funcționează</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 50px;max-width:760px">De la date la contract semnat, în câțiva pași.</h2>
+      <div style="display:flex;flex-direction:column;gap:clamp(28px,4vw,40px);border-left:2px solid #e9e3d7;padding-left:clamp(28px,4vw,40px);max-width:760px">
+        <div style="position:relative"><span style="position:absolute;left:calc(-1 * clamp(28px,4vw,40px));transform:translateX(-50%);top:0;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--accent);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center">01</span><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:2px 0 7px">Completezi formularul — o singură dată</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0;max-width:560px">Datele clientului, ale contractului, sumele. Structurat, cu validare.</p></div>
+        <div style="position:relative"><span style="position:absolute;left:calc(-1 * clamp(28px,4vw,40px));transform:translateX(-50%);top:0;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--accent);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center">02</span><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:2px 0 7px">Datele intră în bază</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0;max-width:560px">Reutilizabile pentru orice contract viitor. Le introduci o dată, le folosești mereu.</p></div>
+        <div style="position:relative"><span style="position:absolute;left:calc(-1 * clamp(28px,4vw,40px));transform:translateX(-50%);top:0;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--accent);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center">03</span><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:2px 0 7px">Alegi șablonul</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0;max-width:560px">Contract-cadru + condițiile speciale potrivite. Modular, nu de la zero.</p></div>
+        <div style="position:relative"><span style="position:absolute;left:calc(-1 * clamp(28px,4vw,40px));transform:translateX(-50%);top:0;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--accent);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center">04</span><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:2px 0 7px">Codul compune contractul</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0;max-width:560px">Automat, determinist — completat din bază, de fiecare dată identic.</p></div>
+        <div style="position:relative"><span style="position:absolute;left:calc(-1 * clamp(28px,4vw,40px));transform:translateX(-50%);top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);border:2px solid var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center">05</span><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:2px 0 7px">Semnezi electronic</h3><p style="font-size:15px;line-height:1.55;color:#6b6862;margin:0;max-width:560px">QES — semnătura electronică calificată. Standardul de aur: identifică semnatarul și îngheață documentul.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="abordare" style="scroll-margin-top:80px;background:#1c1b18;color:#efe9dc">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(64px,8vw,116px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px">04 — Abordarea</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(28px,4.2vw,50px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 22px;max-width:740px">CLM nu e software. E disciplină.</h2>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.62;color:#bdb6a6;margin:0 0 40px;max-width:660px">Optimizare de procese. Evidență. Un mod coerent de lucru, cu control și trasabilitate. Software-ul vine abia la final — toarnă în beton un proces care deja merge.</p>
+
+      <blockquote style="margin:0 0 52px;border-left:3px solid var(--accent-soft);padding:6px 0 6px 26px;max-width:680px">
+        <p style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:clamp(19px,2.2vw,26px);line-height:1.4;margin:0 0 12px;color:#efe9dc">Contractul e acordul de voință — nu documentul.</p>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8e887a">art. 992 Cod civil · niciun cuvânt despre «document»</span>
+      </blockquote>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(16px,2vw,24px);margin-bottom:56px">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:26px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 10px;color:#efe9dc">Tratează contractul ca pe cod</h3><p style="font-size:14.5px;line-height:1.58;color:#aaa394;margin:0">O variabilă, un singur nume. Un concept, o singură definiție. Clauze haotice = datorie tehnică pe care o plătești peste un an.</p></div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:26px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 10px;color:#efe9dc">Determinist, nu generativ</h3><p style="font-size:14.5px;line-height:1.58;color:#aaa394;margin:0">Codul scris o dată rulează la fel mereu: ieftin, rapid, local. Fără tokeni, fără ore de așteptare, fără transfer transfrontalier de date personale.</p></div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:26px"><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 10px;color:#efe9dc">DRY — nu te repeta</h3><p style="font-size:14.5px;line-height:1.58;color:#aaa394;margin:0">Contract-cadru + condiții speciale. Scrii esențialul o singură dată; restul se compune din module.</p></div>
+      </div>
+
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8e887a;margin-bottom:20px">AI ≠ automatizare</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,2vw,22px)">
+        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:26px"><h4 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:16px;margin:0 0 16px;color:#c9b8a0">AI Generativ</h4><div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#aaa394"><div>Nedeterminat — gândește de fiecare dată din nou</div><div>Scump — plătește token cu token</div><div>Lent — mestecă tokeni ore în șir</div><div>Risc legal — transfer transfrontalier de date personale</div></div></div>
+        <div style="border:1px solid var(--accent-soft);border-radius:13px;padding:26px;background:rgba(124,197,156,0.06)"><h4 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:16px;margin:0 0 16px;color:var(--accent-soft)">Clasic / Script</h4><div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;color:#d9d2c2"><div>Determinist — de fiecare dată identic</div><div>Ieftin — scris o dată, rulează gratis</div><div>Rapid — minute, nu ore</div><div>Local — datele rămân sub control</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid #e4e0d8;background:#ffffff">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(60px,8vw,108px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:#9b968a;margin-bottom:18px">05 — Maturitate</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 18px">Crawl · Walk · Run</h2>
+      <p style="font-size:clamp(16px,1.4vw,18px);line-height:1.62;color:#4a473f;margin:0 0 46px;max-width:680px">Cadru te ajută de la primul pas: aduni contractele, normalizezi datele, pui ordine — și de acolo standardizezi și automatizezi. Fără să sari direct într-un CLM enterprise supraîncărcat.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(16px,2vw,22px)">
+        <div style="background:#fff;border:1px solid var(--accent);border-radius:13px;padding:26px;position:relative"><span style="position:absolute;top:-11px;left:24px;background:#fff;border:1px solid var(--accent);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 10px;border-radius:6px">Cadru</span><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:14px">Crawl</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Adună și normalizează</h3><p style="font-size:14.5px;line-height:1.56;color:#6b6862;margin:0">Aduni contractele într-un singur loc, normalizezi datele, faci dezordinea vizibilă. Cadru pregătește terenul pentru pașii următori — fără un angajament mare.</p></div>
+        <div style="background:#fff;border:2px solid var(--accent);border-radius:13px;padding:26px;position:relative"><span style="position:absolute;top:-11px;left:24px;background:var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 10px;border-radius:6px">Cadru</span><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:14px">Walk</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Standardizează</h3><p style="font-size:14.5px;line-height:1.56;color:#6b6862;margin:0">Șabloane curate, mod comun de lucru. Igiena minimă: Track Changes, numerotare automată. Contractul rămâne sănătos.</p></div>
+        <div style="background:#fff;border:2px solid var(--accent);border-radius:13px;padding:26px;position:relative"><span style="position:absolute;top:-11px;left:24px;background:var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 10px;border-radius:6px">Cadru</span><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:14px">Run</div><h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:20px;margin:0 0 10px">Automatizează</h3><p style="font-size:14.5px;line-height:1.56;color:#6b6862;margin:0">Bază de date, formulare și coduri care compun contractul. Automatizare reală — fără funcțiile inutile și localizarea proastă ale unui CLM enterprise.</p></div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#7a756a;margin:28px 0 0;max-width:680px">CLM-urile mari sunt supraîncărcate cu funcții de care n-ai nevoie și prost adaptate pentru Moldova. Cadru ia doar piesele care contează — simplu, localizat, gata de lucru.</p>
+    </div>
+  </section>
+
+  <sc-if value="{{ showJournal }}" hint-placeholder-val="{{ true }}">
+  <section id="jurnal" style="scroll-margin-top:80px;border-top:1px solid #e4e0d8;background:#f7f5f0">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(60px,8vw,108px) clamp(20px,5vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">06 — Jurnal de produs</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 18px">Construim în public.</h2>
+      <p style="font-size:clamp(16px,1.4vw,18px);line-height:1.62;color:#4a473f;margin:0 0 44px;max-width:660px">Documentăm fiecare pas — decizii de produs, capcane juridice, ce funcționează și ce nu. Primele schițe de lucru:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(16px,2vw,22px);margin-bottom:24px">
+        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">28 iun 2026 · Metodă</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Crawl, Walk, Run: nu sări etapele</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Tehnologia peste haos doar accelerează haosul.</span></a>
+        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">25 iun 2026 · Principii</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Datoria tehnică, dar în contracte</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Dobânda o plătești peste un an, în mijlocul unei crize.</span></a>
+        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">18 iun 2026 · Fundamente</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Ce este, de fapt, un contract?</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Un emoji 👍 a costat un fermier 82.000 $.</span></a>
+      </div>
+      <div style="margin-bottom:44px"><a href="Jurnal.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);text-decoration:none">Toate articolele →</a></div>
+      <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(24px,3vw,34px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+        <div><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 6px">Primește articolele pe email</h3><p style="font-size:14.5px;color:#6b6862;margin:0">Te anunțăm la fiecare articol nou. Fără spam.</p></div>
+        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ join }}" style="display:flex;gap:10px;flex-wrap:wrap;flex:1 1 320px;max-width:440px">
+            <input type="hidden" name="_subject" value="Cadru — abonare jurnal"/>
+            <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 200px;min-width:0;padding:13px 15px;border:1px solid #d8d3c8;border-radius:9px;font-size:15px;font-family:inherit;background:#faf8f3;color:#1c1b18;outline:none" style-focus="border-color:var(--accent)"/>
+            <button type="submit" style="padding:13px 20px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap">Abonează-te</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:15px;color:var(--accent);font-weight:500">✓ Te-ai abonat. Pe curând!</span>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="background:#1c1b18;color:#efe9dc">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(64px,8vw,116px) clamp(20px,5vw,40px);text-align:center">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:18px">Acces anticipat</div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(28px,4.2vw,50px);line-height:1.07;letter-spacing:-0.015em;margin:0 auto 22px;max-width:680px;text-wrap:balance">Ia un singur lucru și pornește de la «crawl».</h2>
+      <p style="font-size:clamp(16px,1.5vw,18px);line-height:1.6;color:#bdb6a6;margin:0 auto 30px;max-width:560px">Lasă-ți emailul. Te anunțăm când deschidem accesul anticipat — și primești jurnalul pe drum.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:38px;max-width:720px;margin-left:auto;margin-right:auto">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa394;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 13px">Un cuvânt pentru un concept</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa394;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 13px">Un loc pentru fiecare element</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa394;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 13px">Un format pentru cifre și date</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa394;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 13px">DRY</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa394;border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:6px 13px">Playbook personal</span>
+      </div>
+      <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ join }}" style="display:flex;gap:10px;flex-wrap:wrap;max-width:460px;margin:0 auto;justify-content:center">
+          <input type="hidden" name="_subject" value="Cadru — acces anticipat (final)"/>
+          <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 220px;min-width:0;padding:14px 16px;border:1px solid rgba(255,255,255,0.18);border-radius:9px;font-size:16px;font-family:inherit;background:rgba(255,255,255,0.05);color:#efe9dc;outline:none" style-focus="border-color:var(--accent-soft)"/>
+          <button type="submit" style="padding:14px 24px;border:none;border-radius:9px;background:var(--accent-soft);color:#15211a;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer;white-space:nowrap;transition:transform .15s" style-hover="transform:translateY(-1px)">Solicită acces</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+        <div style="display:inline-flex;align-items:center;gap:11px;padding:15px 22px;background:rgba(124,197,156,0.1);border:1px solid var(--accent-soft);border-radius:10px"><span style="color:var(--accent-soft);font-size:18px">✓</span><span style="font-size:15px;color:#efe9dc">Ești pe listă. Îți scriem când deschidem accesul.</span></div>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="background:#f2efe7;border-top:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(44px,5vw,64px) clamp(20px,5vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:20px;height:20px;border-radius:5px;background:var(--accent);display:inline-block"></span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:19px">Cadru</span></div>
+        <p style="font-size:14px;line-height:1.55;color:#7a756a;margin:0;max-width:300px">CLM practic pentru echipe mici. Contracte sub control — fără un departament juridic întreg.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:#a39d8e;margin-bottom:14px">Navigare</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="#produs" style="color:#4a473f;text-decoration:none">Produsul</a><a href="#cum" style="color:#4a473f;text-decoration:none">Cum funcționează</a><a href="#abordare" style="color:#4a473f;text-decoration:none">Abordarea</a><a href="#jurnal" style="color:#4a473f;text-decoration:none">Jurnal</a></div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:#a39d8e;margin-bottom:14px">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:14.5px"><a href="mailto:legaltechtalkmd@gmail.com" style="color:#4a473f;text-decoration:none">legaltechtalkmd@gmail.com</a><a href="#acces" style="color:#4a473f;text-decoration:none">Acces anticipat</a></div>
+      </div>
+    </div>
+    <div style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(36px,4vw,48px)">
+      <div style="border-top:1px solid #e4e0d8;padding-top:22px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between">
+        <span style="font-size:12.5px;color:#9b968a;max-width:560px">Pornit de la workshop-ul «Contracte sub control» — ABSL Business Workshops, 26 iunie 2026. De Chiril Știrbu, jurisconsult.</span>
+        <span style="font-size:12.5px;color:#9b968a">© 2026 Cadru</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#2f6b4f&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#2f6b4f&quot;, &quot;#2f5a6b&quot;, &quot;#5a3f8a&quot;, &quot;#9a5b2f&quot;], &quot;section&quot;: &quot;Temă&quot;},
+  &quot;showJournal&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Secțiuni&quot;},
+  &quot;showMockup&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Secțiuni&quot;}
+}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  state = { joined: false };
+
+  // Endpoint Formspree — aici ajung lead-urile (și pe legaltechtalkmd@gmail.com)
+  FORMSPREE = 'https://formspree.io/f/mykqppvj';
+
+  applyAccent() {
+    const el = this.rootRef.current;
+    if (el && this.props.accent) el.style.setProperty('--accent', this.props.accent);
+  }
+  componentDidMount() {
+    this.applyAccent();
+    try {
+      if (localStorage.getItem('cadru_joined') === '1') this.setState({ joined: true });
+    } catch (_) {}
+  }
+  componentDidUpdate() { this.applyAccent(); }
+
+  renderVals() {
+    const join = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const input = form.querySelector('input[type=email]');
+      const v = input && input.value ? input.value.trim() : '';
+      if (!v) return;
+      try {
+        const k = 'cadru_waitlist';
+        const arr = JSON.parse(localStorage.getItem(k) || '[]');
+        arr.push({ email: v, ts: Date.now() });
+        localStorage.setItem(k, JSON.stringify(arr));
+        localStorage.setItem('cadru_joined', '1');
+      } catch (_) {}
+      // Trimitere silențioasă către Formspree — fără a părăsi pagina
+      try {
+        fetch(this.FORMSPREE, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        }).catch(function () {});
+      } catch (_) {}
+      this.setState({ joined: true });
+    };
+    return {
+      joined: this.state.joined,
+      notJoined: !this.state.joined,
+      join,
+      showJournal: this.props.showJournal ?? true,
+      showMockup: this.props.showMockup ?? true,
+      rootRef: this.rootRef,
+    };
+  }
+}
+</script>
+</body>
+</html>

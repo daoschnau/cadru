@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+</style>
+</helmet>
+<div style="--accent:#2f6b4f;background:#f7f5f0;color:#1c1b18;font-family:'IBM Plex Sans',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,245,240,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:18px">
+      <a href="Cadru.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+        <span style="width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block"></span>
+        <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;letter-spacing:-0.01em">Cadru</span>
+      </a>
+      <a href="Cadru.dc.html" style="font-size:14.5px;color:#3a3833;text-decoration:none">← Înapoi la site</a>
+    </div>
+  </header>
+
+  <sc-if value="{{ showList }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1140px;margin:0 auto;padding:clamp(50px,7vw,84px) clamp(20px,5vw,40px) clamp(28px,3vw,40px)">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">Jurnal de produs</div>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0 0 20px;max-width:640px">Construim în public.</h1>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.62;color:#4a473f;margin:0;max-width:600px">Idei din practică — disciplina contractelor, capcane juridice, decizii de produs. Note de lucru, scrise pe parcurs.</p>
+    </section>
+
+    <section style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.4vw,26px)">
+
+        <button onClick="{{ selP1 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">28 iun 2026 · Metodă · 4 min</span>
+          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Crawl, Walk, Run: nu sări etapele</span>
+          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Tehnologia pusă peste haos doar accelerează haosul. De ce maturizarea CLM se face fazat — și de ce începi de la ce e aproape gratuit.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+        </button>
+
+        <button onClick="{{ selP2 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">25 iun 2026 · Principii · 5 min</span>
+          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Datoria tehnică, dar în contracte</span>
+          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Un contract scris în grabă nu te costă azi. Dobânda o plătești peste un an — exact când deschizi documentul în mijlocul unei crize.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+        </button>
+
+        <button onClick="{{ selP3 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">22 iun 2026 · Structură · 5 min</span>
+          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">DRY: contract-cadru + condiții speciale</span>
+          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Douăzeci de șabloane înseamnă trei sute de pagini duplicate — și douăzeci de ocazii de a greși la fiecare modificare. Soluția se asamblează ca un Lego.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+        </button>
+
+        <button onClick="{{ selP4 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">18 iun 2026 · Fundamente · 6 min</span>
+          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Ce este, de fapt, un contract?</span>
+          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Articolul 992 nu spune niciun cuvânt despre «document». Iar un emoji 👍 a costat un fermier 82.000 $. Contractul e acordul de voință — documentul e doar o probă.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+        </button>
+
+        <button onClick="{{ selP5 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">15 iun 2026 · Tehnologie · 3 min</span>
+          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">AI ≠ automatizare: scriptul de 50 de cenți</span>
+          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">O sută de contracte sortate în câteva minute, pe jumătate de dolar. Când un script banal bate modelul generativ — și de ce «unde bagi AI» e o decizie de risc, nu una tehnică.</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+        </button>
+
+      </div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#a39d8e;margin:42px 0 0">Schițe de lucru · se completează pe parcurs</p>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isP1 }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">28 iunie 2026 · Metodă · 4 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Crawl, Walk, Run: nu sări etapele</h1>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Înainte de orice tehnică sau software, ai nevoie de o hartă. Una simplă, împrumutată din felul în care un copil învață să se miște: mai întâi se târăie, apoi merge, abia la final aleargă. CLM-ul se maturizează exact la fel — fazat. Iar dacă sari etapele, nu câștigi timp; doar te împiedici mai spectaculos.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Crawl — recunoști haosul</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Contracte împrăștiate prin foldere și e-mailuri, cereri ad-hoc «pe hol», copy-paste dintr-un document vechi în altul. Primul pas nu e să cumperi ceva — ci să faci haosul vizibil și să începi să-l reduci.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Walk — pui disciplină</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Standarde și proceduri simple, șabloane curate, un mod comun de lucru și igiena minimă a documentului: Track Changes, numerotare automată, structură unitară. Tot ce ține contractul «sănătos».</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Run — abia acum, tehnologia</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un software CLM serios capătă sens doar aici: depozit unic cu metadate vii — alerte de termene, raportare, integrări. Adică exact când știi deja <em>ce</em> îi ceri.</p>
+      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Tehnologia pusă peste dezordine doar accelerează dezordinea.</blockquote>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cea mai importantă lecție: nu trebuie, din prima zi, să schimbi întreaga organizație. Stabilește ce ai cu adevărat sub control și ce resurse ai deja la îndemână — și începe de acolo. Dacă procesele ușurează viața tuturor, se răspândesc ca cercurile pe apă și se implementează singure, fără politici scrise și sigilate.</p>
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ isP2 }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">25 iunie 2026 · Principii · 5 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Datoria tehnică, dar în contracte</h1>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Dacă ești din IT, cunoști deja conceptul de <em>technical debt</em>. Este obligația pe care un inginer și-o asumă implicit în clipa în care a terminat de scris o bucată de cod: trebuie s-o întrețină, s-o adapteze, uneori s-o explice altora. Regula e simplă — cu cât codul e mai neclar, cu atât «dobânda» la această datorie crește.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aceeași logică se transpune unu-la-unu în contracte. Un contract scris în grabă, cu termeni inconsecvenți și o structură haotică, creează o datorie rea. Iar dobânda ei nu se plătește azi — se plătește peste un an, doi, când nu-ți mai amintești exact ce ai convenit cu acel partener.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Un exemplu din port</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Mă sună colegii: clientul n-a dat destule camioane, n-a asigurat ritmul la descărcare — și din cauza asta stau terminalul, dana și nava. Pierderi pe minut. Munca mea, contra-cronometru: să scot din contract cum sunt împărțite obligațiile, zonele de răspundere, riscul; să prognozez cine, cui și cât compensează.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Și aici se duce resursa. Dacă în contract e dezordine — dacă acea condiție despre camioane rătăcește din capitol în capitol — sunt nevoit să citesc tot. Îmi ard atenția pe căutare. Iar când ajung la momentul care contează, concluzia juridică, resursa s-a dus deja — și acolo greșesc. Exact unde nu trebuie.</p>
+      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Într-un contract sănătos, orice element-cheie are un singur loc — și știi exact unde să-l cauți.</blockquote>
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ isP3 }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">22 iunie 2026 · Structură · 5 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">DRY: contract-cadru + condiții speciale</h1>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un contract poate avea peste douăzeci de pagini. Din ele, vreo cincisprezece sunt identice în fiecare contract — definiții, răspundere, notificări, soluționarea litigiilor. Doar o pagină-două conțin ce interesează cu adevărat: ce prestăm, când, pentru cine, la ce tarif.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Dacă ai douăzeci de astfel de șabloane, asta înseamnă peste trei sute de pagini de text duplicat. Și în ziua în care vrei să schimbi o singură prevedere standard — fie și o cifră, penalitatea de la 0,1% la 0,05% — trebuie să deschizi douăzeci de fișiere, să cauți, să înlocuiești, să salvezi. <strong>Douăzeci de ocazii de a greși.</strong></p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Răspunsul: DRY — Don't Repeat Yourself</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Scoate cele cincisprezece pagini comune într-un document separat — <strong>contractul-cadru</strong>. Acolo stă tot ce nu se schimbă de la o tranzacție la alta. Iar într-un al doilea document, mult mai scurt, scrii doar ce e specific: serviciul, tarifele, termenul — <strong>condițiile speciale</strong>. Un contract gata de semnat se asamblează din două piese. Ca un Lego.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Beneficiile se simt imediat. Cifra pe care voiai s-o modifici o schimbi acum într-un singur loc. Un contract pentru un serviciu nou se pregătește în vreo oră, nu într-o zi. Iar echipa — contabili, manageri de cont — nu mai sapă prin douăzeci de pagini: citește două, cu cifre în format cunoscut.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un ultim lucru: sistemul nu e bătut în cuie, e un document viu. O dată pe an strângi tot ce s-a acumulat — observațiile echipei, propriile descoperiri — compilezi o versiune nouă și de acolo lucrezi după ea. Cu disciplină de versiuni chiar în numele fișierului: data și numărul.</p>
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ isP4 }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">18 iunie 2026 · Fundamente · 6 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Ce este, de fapt, un contract?</h1>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">De obicei spunem «contract» și înțelegem, tacit, un document — pe hârtie sau electronic. Dar dacă deschidem articolul 992 din Codul civil, citim altceva.</p>
+      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">«Contract este acordul de voinţă realizat între două sau mai multe persoane prin care se stabilesc, se modifică sau se sting raporturi juridice.»<span style="display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9b968a;margin-top:12px">art. 992 Cod civil — niciun cuvânt despre «document»</span></blockquote>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Cazul emoji-ului de 82.000 $</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Canada, 2021. Un cumpărător de cereale trimite unui fermier poza unui contract pentru 86 de tone de in și scrie: «please confirm». Fermierul răspunde cu un singur emoji — 👍 — și apoi nu livrează nimic. În instanță s-a apărat: «un degețel nu e semnătură». N-a ținut. Instanța s-a uitat la cum lucraseră cei doi până atunci și a decis că, în acel context, 👍 înseamnă contract încheiat. Fermierul a plătit peste 82.000 $.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Asta nu înseamnă că orice emoji e o semnătură. E doar o probă. Și nicio probă nu are o putere dinainte stabilită — nici emoji-ul, nici semnătura olografă, nici ștampila. Contextul decide. De-aceea munca noastră nu e să «semnăm», ci să adunăm un dosar care, în ansamblu, dovedește.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Trei moduri de a proba acordul</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 14px"><strong>Hârtie + semnătură olografă.</strong> Funcționează și azi, dar cere prezență fizică, logistică, timp — și e vulnerabilă: autenticitatea paginilor, identitatea semnatarului.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 14px"><strong>Scan + e-mail.</strong> Singur dovedește puțin. Dar împreună cu corespondența și cu ce face partenerul după — comandă, plătește, trimite camioanele — dovedește în ansamblu. Regula: salvează e-mailul în aceeași mapă cu PDF-ul.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Semnătura electronică calificată (QES).</strong> Standardul de aur: fără prezență fizică, exemplare originale nelimitate, iar dovada e în interiorul fișierului. Nu e ștampila de pe pagină — e un cod criptografic care identifică semnatarul și «îngheață» documentul.</p>
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
+    </article>
+  </sc-if>
+
+  <sc-if value="{{ isP5 }}" hint-placeholder-val="{{ false }}">
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">15 iunie 2026 · Tehnologie · 3 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">AI ≠ automatizare: scriptul de 50 de cenți</h1>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Când cineva îți vinde o «automatizare pe bază de inteligență artificială», merită o întrebare pusă înainte de a semna ceva: chiar e nevoie de un model care «gândește» de fiecare dată — sau e o muncă mecanică, mereu aceeași?</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un model generativ pus pe muncă repetitivă plătește token cu token — adică bani — pentru ceva ce un script banal (Python, ba chiar VBA în Excel) face o dată, gratis, și apoi de fiecare dată identic. Și, apropo, scriptul ăla ți-l scrie tot AI-ul.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Exemplul arhivei</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aveam o arhivă de contracte vechi, scanate, de citit, sortat, redenumit și introdus într-un registru. Prima idee: un agent AI autonom. Dar am întrebat chiar modelul dacă e cel mai rațional mod — și m-a sfătuit să nu-l folosesc așa. Mi-a scris un program clasic în Python. Rezultatul: vreo sută de contracte procesate în câteva minute, cu cam o jumătate de dolar — în loc de un agent care ar fi «mestecat» tokeni ore în șir.</p>
+      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Unde bagi AI-ul în lucru e o evaluare a riscului, nu o alegere tehnică.</blockquote>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Și mai e un risc de luat în calcul: AI-ul procesează datele clienților — date cu caracter personal — pe servere aflate, posibil, peste ocean. Are loc un transfer transfrontalier, pentru care legea cere «garanții adecvate». Lipsa lor se poate plăti scump. Deci: cu ochii deschiși, nu fiindcă «așa e moda».</p>
+      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
+    </article>
+  </sc-if>
+
+  <footer style="background:#f2efe7;border-top:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(36px,4vw,52px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between">
+      <span style="font-size:12.5px;color:#9b968a;max-width:560px">Jurnal de produs Cadru. Schițe pe parcurs — de la workshop-ul «Contracte sub control», ABSL Business Workshops.</span>
+      <a href="Cadru.dc.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-family:'IBM Plex Mono',monospace">← Cadru</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selected: null };
+
+  renderVals() {
+    const sel = (id) => () => { this.setState({ selected: id }); try { window.scrollTo(0, 0); } catch (_) {} };
+    const back = () => { this.setState({ selected: null }); try { window.scrollTo(0, 0); } catch (_) {} };
+    const s = this.state.selected;
+    return {
+      showList: s === null,
+      isP1: s === 'p1',
+      isP2: s === 'p2',
+      isP3: s === 'p3',
+      isP4: s === 'p4',
+      isP5: s === 'p5',
+      selP1: sel('p1'),
+      selP2: sel('p2'),
+      selP3: sel('p3'),
+      selP4: sel('p4'),
+      selP5: sel('p5'),
+      back,
+    };
+  }
+}
+</script>
+</body>
+</html>
