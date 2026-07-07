@@ -38,6 +38,12 @@ Why this matters for GTM:
 - **Content muscle** — he already teaches this material; repurpose it into the journal, LinkedIn, launch webinar.
 - The whole product story is credibly "built by a practitioner for practitioners." Lean into founder-led everything.
 
+### The master document (canonical source material)
+The founder maintains a **master document on CLM** (Romanian) — his whole body of knowledge and voice: philosophy (Crawl·Walk·Run, DRY, contract-as-code, engineering debt, deterministic vs. AI) plus dozens of concrete techniques. Parts of it already become workshop scripts, talks, and posts. **It is the raw material for every content deliverable** (journal, LinkedIn, lead magnets) and the source to ground/validate positioning claims — draft in his voice, from his substance, not generic marketing prose.
+
+- **Location:** the **private** `daoschnau/cadru-internal` repo, at `source/CONTRACT_LIFECYCLE_MANAGEMENT.md` (kept private, not in this public repo). Both repos are normally in the working session, so read it from there when producing content.
+- **How to use it:** it's long (~770 lines) — **grep for the relevant section** and pull the specific idea, rather than loading the whole file. Always write customer-facing output in Romanian.
+
 ## The current site (what exists today)
 
 Static site on GitHub Pages: `https://daoschnau.github.io/cadru/`. No build step. Custom `.dc.html` runtime — **read the repo README before editing any file.**
