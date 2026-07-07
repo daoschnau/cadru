@@ -42,7 +42,9 @@
       <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">Pentru afaceri mici, fără jurist</div>
       <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(34px,5.2vw,58px);line-height:1.04;letter-spacing:-0.015em;margin:0 0 22px;text-wrap:balance">Contracte sub control — fără un departament juridic întreg.</h1>
       <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.62;color:#4a473f;margin:0 0 30px;max-width:520px">Ești la început, faci totul singur și n-ai un jurist care să-ți prindă greșelile. Cadru îți dă disciplina unui jurist: bază de date, formulare, șabloane și automatizări care compun contractul din date. Ordine și control — nu încă un software complicat.</p>
-      <div id="acces" style="scroll-margin-top:90px">
+    </div>
+
+    <div id="acces" style="scroll-margin-top:90px">
         <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
           <div style="background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(20px,3vw,26px);max-width:520px">
             <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Ghid gratuit</div>
@@ -70,32 +72,6 @@
           </div>
         </sc-if>
       </div>
-    </div>
-
-    <sc-if value="{{ showMockup }}" hint-placeholder-val="{{ true }}">
-      <div style="background:#fff;border:1px solid #e4e0d8;border-radius:15px;box-shadow:0 28px 64px -32px rgba(28,27,24,0.4);overflow:hidden">
-        <div style="display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid #eee7da;background:#faf8f3">
-          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
-          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
-          <span style="width:11px;height:11px;border-radius:50%;background:#e2ddd0;display:inline-block"></span>
-          <span style="margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9b968a">cadru — contracte</span>
-        </div>
-        <div style="display:grid;grid-template-columns:118px 1fr;min-height:248px">
-          <div style="border-right:1px solid #f0ebe0;padding:15px 13px;display:flex;flex-direction:column;gap:11px;font-size:12.5px;color:#6b6862">
-            <div style="color:var(--accent);font-weight:600;display:flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block"></span>Clienți</div>
-            <div>Contracte</div>
-            <div>Șabloane</div>
-            <div>Termene</div>
-          </div>
-          <div style="padding:14px;display:flex;flex-direction:column;gap:8px">
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Vega Trans S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);background:rgba(47,107,79,0.09);padding:2px 8px;border-radius:5px">activ</span></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Acme Trade S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#a08a3a;background:rgba(160,138,58,0.1);padding:2px 8px;border-radius:5px">draft</span></div>
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border:1px solid #f0ebe0;border-radius:8px;font-size:12.5px"><span style="color:#3a3833">Nord Servicii S.R.L.</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);background:rgba(47,107,79,0.09);padding:2px 8px;border-radius:5px">activ</span></div>
-            <button style="margin-top:6px;align-self:flex-start;padding:9px 15px;border:none;border-radius:8px;background:#1c1b18;color:#f7f5f0;font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:default">Compune contract →</button>
-          </div>
-        </div>
-      </div>
-    </sc-if>
   </section>
 
   <section style="border-top:1px solid #e4e0d8;background:#ffffff">
