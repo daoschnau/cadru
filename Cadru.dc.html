@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script data-goatcounter="https://cadruclm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <x-dc>
@@ -313,6 +314,14 @@ class Component extends DCLogic {
           headers: { 'Accept': 'application/json' },
           body: new FormData(form),
         }).catch(function () {});
+      } catch (_) {}
+      // Eveniment de conversie în GoatCounter (semnare pe listă)
+      try {
+        const subjEl = form.querySelector('input[name=_subject]');
+        const subj = subjEl && subjEl.value ? subjEl.value : 'signup';
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: 'ev-signup', title: subj, event: true });
+        }
       } catch (_) {}
       this.setState({ joined: true });
     };
