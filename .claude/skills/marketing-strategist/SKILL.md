@@ -104,6 +104,8 @@ Pull these in when the relevant phase needs them; don't front-load everything.
 | `references/site-conversion.md` | Phase 2: landing-page/CRO checklist applied to a static site like Cadru. |
 | `references/launch-runway.md` | Phases 1/4: channel selection (incl. the social-media question), launch sequencing, offer, launch-day orchestration. |
 
+**Source material (not in this repo):** the founder's **CLM master document** — the raw substance and voice for all content and lead magnets — lives in the **private** `cadru-internal` repo at `source/CONTRACT_LIFECYCLE_MANAGEMENT.md`. When drafting any customer-facing content, pull from it (grep the relevant section; it's long) and write in the founder's voice, in Romanian. See `references/cadru-context.md` → "The master document" for details.
+
 ---
 
 ## How to start
