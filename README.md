@@ -33,10 +33,19 @@ ce e în repo, cum funcționează, ce **nu** trebuie stricat la editare.
 index.html        Redirect simplu (meta refresh) către Cadru.dc.html — pagina de start
 Cadru.dc.html     Landing page principal (single-page, scroll cu ancore)
 Jurnal.dc.html    „Jurnal de produs" (blog) — 5 articole draft
-support.js        Runtime-ul care interpretează formatul .dc.html — NU edita
+support.js        Runtime-ul care interpretează formatul .dc.html — NU edita (excepție: căile din vendor/)
+vendor/           React, React-DOM și Babel, găzduite local (vendored) — vezi mai jos
 README.md         Acest fișier
 BRIEF.md          Brief complet: context, conținut, decizii deschise
 ```
+
+> **`vendor/` — de ce există:** `support.js` are nevoie de React (și, la nevoie, Babel)
+> pentru a rula. Inițial le încărca de pe CDN-ul `unpkg.com` la runtime — ceea ce
+> însemna că site-ul **nu se randa deloc** dacă acel CDN era indisponibil. Acum
+> aceste librării sunt găzduite local în `vendor/`, iar `support.js` le încarcă de
+> acolo (`./vendor/...`). Site-ul e astfel complet independent de CDN-uri externe
+> (singura excepție rămasă: fonturile Google Fonts, care degradează grațios la
+> fonturi de sistem). Nu șterge `vendor/`.
 
 ## Rulare locală
 
