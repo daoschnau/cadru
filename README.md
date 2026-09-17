@@ -99,7 +99,7 @@ Secțiuni în ordine (fiecare `<section>` cu `id` pentru ancore):
 2. **Hero** (`#acces`) — titlu + subtitlu + formă waitlist + mockup decorativ de dashboard (fictiv).
 3. **01 — Problema** — 3 carduri (contracte împrăștiate, copy-paste, termene scăpate).
 4. **02 — Produsul** (`#produs`) — 4 module: Bază de date, Formulare, Șabloane, Automatizări.
-5. **03 — Cum funcționează** (`#cum`) — timeline vertical, 5 pași (formular → bază → șablon → cod compune → semnătură QES).
+5. **03 — Cum funcționează** (`#cum`) — timeline vertical, 4 pași (formular → bază → șablon → cod compune contractul, gata de semnat). **Cadru nu semnează** — semnarea rămâne în afara produsului.
 6. **04 — Abordarea** (`#abordare`, fundal închis) — art. 992 Cod civil, 3 principii (contract-ca-cod, determinist vs. generativ, DRY), AI Generativ vs. Clasic/Script.
 7. **05 — Maturitate** — model Crawl · Walk · Run.
 8. **06 — Jurnal** (`#jurnal`) — teasere spre articole + formă de abonare. Condiționat de prop `showJournal`.

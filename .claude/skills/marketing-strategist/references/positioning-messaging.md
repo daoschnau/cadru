@@ -11,7 +11,7 @@ Fill this in explicitly (April Dunford style):
 - **Cadru is a** [category] — practical contract-management system for small teams
 - **that** [key benefit] — brings order and discipline to contracts without a legal department or heavy software
 - **unlike** [alternative] — Excel-plus-folders, a foreign enterprise CLM, or hiring a lawyer
-- **because** [differentiators] — built by a practicing jurisconsult, deterministic (not AI-hype), local QES signing, sized for small teams.
+- **because** [differentiators] — built by a practicing jurisconsult, deterministic (not AI-hype), sized for small teams.
 
 **Category note:** "CLM" is jargon here. Use the outcome in the headline ("Contracte sub control"), introduce the category only as clarification. Don't make buyers learn a new acronym before they feel the pain.
 
@@ -36,7 +36,6 @@ Everything on the site should ladder back to relieving this.
 **Differentiators (defensible, specific):**
 - Built by a practicing jurisconsult *for* practitioners — credibility in a trust category.
 - **Deterministic, not generative** — "AI ≠ automation; the 50-cent script." Anti-hype stance is itself positioning in 2026.
-- Local **QES** signing — works with MD reality, not a foreign afterthought.
 - Right-sized for small teams — not an enterprise CLM you'll never fully use.
 - **Built in public** — you watch it being made; you can shape it.
 
@@ -63,7 +62,7 @@ If a piece of copy doesn't map to one of these four, cut it.
 The product's own maturity model doubles as audience segmentation — meet buyers where they are:
 - **Crawl** (contracts are chaos): message = "just get your contracts in one place, low commitment." Lead magnet territory.
 - **Walk** (some order, want standards): message = "standardize with templates + special conditions (DRY)."
-- **Run** (ready to automate): message = "real automation, data → document, QES signing."
+- **Run** (ready to automate): message = "real automation, data → document, ready to sign."
 
 This lets the same product speak to a cold owner and a sophisticated jurist without diluting either.
 

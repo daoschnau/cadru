@@ -6,7 +6,7 @@ Read this before advising. It keeps recommendations tied to *this* company, not 
 
 **Cadru** — a simple CLM (Contract Lifecycle Management) for small teams in Moldova. Four modules: a **database**, **intake forms**, **contract templates**, and **automations** that pour data from the database into a template. Positioning line already live on the site: *"Contracte sub control — fără un departament juridic întreg."* (Contracts under control — without a whole legal department.)
 
-Signing is via **QES** (qualified electronic signature) — locally relevant, a real differentiator vs. generic foreign tools.
+**Cadru does NOT sign contracts.** It produces a document *ready to sign* — signing happens outside the product (in person, or with the counterparty's own QES tooling). Electronic signing is not on the roadmap. Never write copy, a claim or a lead magnet that implies Cadru signs, offers QES, or integrates with a signing provider. QES may still be discussed in the Jurnal as a *topic* in contract discipline — never as a Cadru feature.
 
 **Philosophy** (this is the marketing wedge, not just the product): contract discipline as an engineering practice — **Crawl · Walk · Run** maturity, **contract-as-code**, **DRY** (framework contract + special conditions), and **deterministic > generative** ("AI ≠ automation; the 50-cent script"). This intellectual spine is the founder's authority content.
 

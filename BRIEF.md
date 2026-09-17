@@ -49,7 +49,7 @@ Secțiuni, în ordine (fiecare `<section>`, cu `id` pentru ancore de navigare):
 2. **Hero** (`#acces`) — titlu + subtitlu + formă waitlist (email) + mockup vizual al unui „dashboard" fictiv (listă de clienți/contracte, doar decorativ).
 3. **01 — Problema** — de ce dezordinea contractuală costă (3 carduri: contracte împrăștiate, copy-paste, termene scăpate).
 4. **02 — Produsul** (`#produs`) — cele 4 module: Bază de date, Formulare, Șabloane, Automatizări (4 carduri).
-5. **03 — Cum funcționează** (`#cum`) — timeline vertical, 5 pași: completezi formularul → date în bază → alegi șablonul → codul compune contractul → semnezi electronic (QES).
+5. **03 — Cum funcționează** (`#cum`) — timeline vertical, 4 pași: completezi formularul → date în bază → alegi șablonul → codul compune contractul (gata de semnat). **Produsul nu semnează** documente — semnarea (olograf sau QES) se face în afara Cadru și nu e pe roadmap.
 6. **04 — Abordarea** (`#abordare`, secțiune cu fundal închis) — conținutul „intelectual" al workshop-ului: citat din art. 992 Cod civil, 3 principii (contract ca și cod, determinist vs. generativ, DRY), comparație AI Generativ vs. Clasic/Script.
 7. **05 — Maturitate** — modelul Crawl · Walk · Run, cu Cadru poziționat ca ajutând în toate cele 3 etape (Crawl = adunare/normalizare date, fără angajament mare; Walk = standardizare; Run = automatizare reală).
 8. **06 — Jurnal** (`#jurnal`, `sc-if` condiționat de prop `showJournal`) — teasere spre 3 articole din blog + formă de abonare separată.
