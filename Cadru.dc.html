@@ -318,7 +318,7 @@ class Component extends DCLogic {
     // Anunțurile din secțiunea Jurnal: primele 4 articole din articles.js.
     const list = (typeof window !== 'undefined' && Array.isArray(window.CADRU_JURNAL)) ? window.CADRU_JURNAL : [];
     const teasers = list.slice(0, 4).map((x) => ({
-      href: 'Jurnal.dc.html#' + x.id,
+      href: 'jurnal/' + x.slug + '.html',
       meta: x.date + ' · ' + x.category,
       title: x.teaserTitle || x.title,
       text: x.teaser || x.summary,

@@ -37,7 +37,6 @@
     </div>
   </header>
 
-  <sc-if value="{{ showList }}" hint-placeholder-val="{{ true }}">
     <section style="max-width:1140px;margin:0 auto;padding:clamp(50px,7vw,84px) clamp(20px,5vw,40px) clamp(28px,3vw,40px)">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.09em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">Jurnal de produs</div>
       <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0 0 20px;max-width:640px">Construim în public.</h1>
@@ -48,225 +47,24 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.4vw,26px)">
 
         <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
-          <button onClick="{{ a.open }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+          <a href="{{ a.href }}" style="text-decoration:none;color:inherit;text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">{{ a.meta }}</span>
             <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">{{ a.title }}</span>
             <span style="font-size:14.5px;line-height:1.55;color:#6b6862">{{ a.summary }}</span>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-          </button>
+          </a>
         </sc-for>
 
       </div>
       <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#a39d8e;margin:42px 0 0">Schițe de lucru · se completează pe parcurs</p>
     </section>
-  </sc-if>
 
-  <sc-if value="{{ isP7 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">1 octombrie 2026 · Date personale · 9 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px">Datele voastre rămân ale voastre: cum lucrează Cadru cu datele personale</h1>
-      <span style="display:block;font-size:15px;color:#6b6862;margin-bottom:28px">Chiril Știrbu, jurisconsult, fondatorul Cadru</span>
-      <p style="font-size:20px;line-height:1.6;color:#4a473f;margin:0 0 32px">Cadru păstrează date despre oameni care nu au ales Cadru: beneficiarii efectivi, administratorii și reprezentanții partenerilor voștri. Ce am decis deja ca să le protejăm, ce funcționează astăzi și ce nu e încă gata.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Când trimiteți unui partener chestionarul din Cadru, el ne dă date despre persoane care n-au acceptat niciodată condițiile noastre: numele beneficiarilor efectivi, cetățenia lor, cine semnează contractul și în temeiul cărei procuri. Oamenii aceștia nu ne cunosc și nu ne-au ales. Au încredere în voi, iar voi aveți încredere în noi.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">De aceea, în Cadru protecția datelor nu e un capitol scris la final. E un set de decizii luate înaintea codului, iar multe dintre ele ne-au costat comoditate. Le adun aici pe cele importante: ce funcționează deja, ce e planificat și ce n-o să facem niciodată.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un principiu le leagă pe toate: <strong>mecanisme, nu promisiuni.</strong> O promisiune scrisă într-un text, fără cod care s-o execute, e mai rea decât lipsa ei: creează o așteptare pe care nimic n-o susține.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Cine decide: voi. Cine execută: noi</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Legea nr. 195/2024 privind protecția datelor cu caracter personal urmează modelul GDPR. După ea, organizația care folosește Cadru este <strong>operatorul</strong>: ea decide ce date cere de la parteneri, de ce și cât timp le păstrează. Cadru este <strong>persoana împuternicită de operator</strong>: prelucrează datele în numele vostru, după instrucțiunile voastre, și nu are dreptul să le folosească în alt scop.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Sună ca o formulă din manual, dar din ea decurg decizii foarte concrete:</p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Termenul de păstrare îl stabiliți voi.</strong> Recomandăm trei ani, termenul general de prescripție, și explicăm de ce. Dar câmpurile rămân goale până când le completați sau apăsați chiar voi „aplică recomandarea”. Un număr pus de noi implicit ar fi decizia noastră îmbrăcată în haina voastră.</li><li style="margin:0 0 10px"><strong>Fără termen nu există invitații.</strong> A colecta date fără să știi cât le păstrezi înseamnă a promite că „le vom șterge cândva”.</li><li style="margin:0 0 10px"><strong>Schimbarea termenului nu rescrie trecutul.</strong> Termenul unui chestionar se calculează la trimitere, iar partenerului i s-a comunicat exact acel termen. Dacă l-am recalcula retroactiv, am schimba o promisiune făcută unor oameni care n-ar afla de asta.</li><li style="margin:0 0 10px"><strong>Cadru nu șterge singur documentele trimise de parteneri.</strong> Când le expiră termenul, vi le arată pe un ecran separat; voi le ștergeți sau prelungiți termenul, cu motiv. O zi de păstrare în plus e o abatere vizibilă și reparabilă. O procură ștearsă din greșeală nu mai poate fi recuperată, iar odată cu ea dispare și valoarea probatorie a declarației.</li></ul>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cadru șterge singur doar ceea ce nu are un om care să apese butonul: ciornele abandonate și fișierele atașate, dar netrimise. Dacă partenerul a început chestionarul și s-a răzgândit, nu există nicio declarație și niciun motiv să-i păstrăm datele. Ciorna dispare la o săptămână după expirarea invitației, iar formularul îl anunță pe fiecare pagină. Numărul de zile din acel text vine din aceeași setare pe care o folosește ștergerea, așa că promisiunea și comportamentul nu pot diverge.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Cerem mai puțin</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cea mai sigură dată personală e cea pe care n-ai colectat-o. În proiect există o regulă fixă: niciun câmp nu intră în formular dacă nu e scris, într-un document separat, la ce folosește.</p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Copia buletinului nu se acceptă.</strong> Nici acum, nici mai târziu. E cea mai sensibilă dată din tot fluxul, iar riscul păstrării ei depășește cu mult folosul.</li><li style="margin:0 0 10px"><strong>Statutul nu se mai cere.</strong> Conține datele fondatorilor. În locul lui, partenerul declară dacă administratorul poate semna singur.</li><li style="margin:0 0 10px"><strong>Codurile personale ale beneficiarilor nu se cer.</strong> Pentru a deosebi doi omonimi la verificarea sancțiunilor ajung țara și cetățenia.</li><li style="margin:0 0 10px"><strong>Dacă partenerul e persoană fizică</strong>, chestionarul e minim: nume, domiciliu, cont, telefon, e-mail și declarația despre sancțiuni. IDNP-ul e opțional.</li><li style="margin:0 0 10px"><strong>Numele persoanei de contact e opțional</strong>, iar documentele atașate sunt toate opționale.</li><li style="margin:0 0 10px"><strong>Despre voi, ca clienți Cadru, cerem doar rechizitele</strong> de care e nevoie în contract. Beneficiarii voștri efectivi, asociații și sancțiunile nu ne privesc și nu le colectăm.</li><li style="margin:0 0 10px"><strong>Jurnalul consimțămintelor nu păstrează adresa IP.</strong> Ca dovadă ajung contul, versiunea documentului și momentul acceptării.</li></ul>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Partenerul știe cine îi cere datele</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un formular care cere beneficiarii efectivi ai unei firme, trimis de pe un domeniu necunoscut, arată exact ca un e-mail de phishing. De aceea Cadru nu trimite niciun e-mail. Pregătește textul scrisorii, iar voi o trimiteți din căsuța voastră, în conversația în care se discută contractul. Pe drum nu apare niciun serviciu de e-mail care să vadă adresele partenerilor.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Mai mult: pe fiecare pagină a chestionarului, în scrisoare și în PDF-ul pe care partenerul îl primește după trimitere apare <strong>cine este operatorul datelor</strong>, cu rechizitele voastre: denumirea, IDNO-ul și sediul. Până nu completați rechizitele, Cadru nu emite invitații. Partenerul trebuie să știe cui îi încredințează datele înainte să înceapă să scrie.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Un client nu vede datele altuia</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Datele fiecărei organizații sunt separate pe două niveluri. Primul e codul: fiecare înregistrare poartă eticheta organizației căreia îi aparține, iar fiecare interogare filtrează după ea. Al doilea e baza de date însăși (<em>Row-Level Security</em> în PostgreSQL): aplicația se conectează cu un rol căruia baza îi arată doar datele organizației curente, <strong>chiar dacă în cod ar lipsi filtrul</strong>. Dacă organizația nu e indicată, baza nu returnează nimic. Protecția cedează în partea sigură: o greșeală produce un ecran gol, nu datele altcuiva.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Datele unui client nu trebuie să ajungă la altul sub nicio formă de eroare. Nu ne bazăm pe faptul că nu vom greși. Ne bazăm pe faptul că baza de date nu ne va lăsa.</blockquote>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Nici eu nu le văd</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Ca administrator al Cadru, am un panou separat: lista organizațiilor-clienți, invitațiile noi și posibilitatea de a suspenda un cont. În acest panou văd denumirea organizației, adresa contului, datele-cheie și <strong>numere</strong>: câte invitații, chestionare și fișe are fiecare. Nu văd conținutul chestionarelor, fișele partenerilor sau documentele.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Și aici regula o ține baza de date, nu doar interfața. Panoul folosește un rol propriu, care poate cere bazei doar acele câteva coloane și contoare, nimic altceva. Intrarea în panou cere parolă și cod din aplicația de autentificare, iar fiecare acțiune a mea (o invitație, o suspendare) rămâne în jurnal.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Intrarea în cont</h3>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Parola are cel puțin 12 caractere și se păstrează doar sub formă de amprentă criptografică (scrypt).</li><li style="margin:0 0 10px"><strong>Autentificarea în doi pași e obligatorie</strong> de la prima intrare: cod din aplicația de pe telefon (TOTP) și zece coduri de rezervă, afișate o singură dată. Cheia secretă a codurilor nici măcar nu se păstrează în bază: se calculează din cheia aplicației, astfel încât o copie furată a bazei nu o dezvăluie.</li><li style="margin:0 0 10px">Puteți ieși de pe toate dispozitivele dintr-un clic. Schimbarea parolei închide toate sesiunile deschise.</li><li style="margin:0 0 10px">Fără biometrie și fără <em>passkey</em>. A fost o decizie conștientă: riscurile juridice și tehnice depășesc beneficiul.</li></ul>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Datele vă aparțin, inclusiv când plecați</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aceasta e, probabil, decizia la care țin cel mai mult. <strong>Cu un singur buton descărcați tot</strong>: o arhivă cu un registru Excel (câte o foaie pentru fiecare tabel), aceleași tabele în CSV și toate fișierele documentelor. Intră acolo tot ce ține de organizația voastră: fișele, chestionarele, istoria modificărilor, jurnalul de acces, jurnalul de ștergeri, consimțămintele. Lipsesc doar secretele tehnice, cum ar fi amprenta parolei. Un test automat verifică faptul că nicio coloană nouă nu poate apărea în bază fără o decizie explicită: o exportăm sau scriem de ce nu.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Exportul e disponibil întotdeauna, <strong>inclusiv când contul e suspendat</strong> și chiar dacă nu acceptați o versiune nouă a condițiilor de utilizare. Un cont suspendat nu mai poate colecta chestionare, dar dreptul de a-ți lua datele nu trebuie să depindă de bunăvoința noastră sau de o factură.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Iar dacă plecați, plecați cu tot. Ștergerea organizației o cereți chiar voi, din setările contului: Cadru vă propune întâi exportul, apoi cere parola și cuvântul „STERGE”. Urmează șapte zile în care vă puteți răzgândi. După ele, sistemul șterge fișierele și toate rândurile organizației. Rămâne doar o notă fără date personale: că o organizație a cerut ștergerea și când a fost ștearsă. Copiile de rezervă ale bazei expiră în cel mult 30 de zile, și spunem asta de la început, nu în litere mici.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Urme, fără date</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Unele lucruri trebuie să poată fi dovedite mai târziu, fără să păstrăm ce nu e necesar:</p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Jurnalul de acces</strong> înregistrează fiecare consultare a datelor unui partener, inclusiv descărcarea PDF-ului, a unui document sau a exportului. Se păstrează 12 luni.</li><li style="margin:0 0 10px"><strong>Jurnalul de ștergeri</strong> păstrează amprenta documentului șters, iar detaliile care pot conține date personale dispar după trei ani. Puteți dovedi că ați șters ce trebuia, fără să păstrați ce ați șters.</li><li style="margin:0 0 10px"><strong>Valorile din chestionar nu ajung în jurnalele serverului.</strong> Nici măcar mesajele de eroare ale bazei de date, care de obicei citează rândul întreg.</li><li style="margin:0 0 10px"><strong>Linkul de invitație e tratat ca o parolă:</strong> în bază rămâne doar amprenta lui, iar la prima deschidere e înlocuit cu o sesiune și dispare din bara de adrese.</li></ul>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Unde stau datele</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aplicația rulează la Frankfurt, iar baza de date și fișierele sunt stocate în UE. Copia de rezervă zilnică stă într-un spațiu separat, cu o cheie separată, pe care aplicația nu o poate folosi pentru ștergere. Restaurarea am verificat-o în practică, nu doar pe hârtie.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce nu e încă gata</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cadru e încă în testare, iar o parte din lucrurile legate de date sunt în lucru. Ecranul de consimțământ din aplicație există deja și înregistrează versiunea documentelor pe care le acceptați.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Pe lista de lucru:</p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Acordul de prelucrare a datelor și condițiile de utilizare</strong>, în forma lor finală, înainte ca primii utilizatori să introducă date reale.</li><li style="margin:0 0 10px"><strong>O verificare independentă de securitate a întregului sistem</strong>, făcută din perspectiva unui atacator, nu doar a fiecărui pas în parte. Tot înainte de primele date reale.</li><li style="margin:0 0 10px"><strong>Procedura de notificare a incidentelor</strong>: în câte ore vă anunțăm, pe ce canal și cu ce informații.</li><li style="margin:0 0 10px"><strong>Lista subcontractanților (împuterniciților ulteriori)</strong>, cu acordurile de prelucrare ale fiecăruia.</li><li style="margin:0 0 10px"><strong>Anonimizarea la cererea persoanei vizate.</strong> Cadrul e stabilit: datele personale dintr-o declarație se șterg, dar faptul că declarația a fost făcută, și când, rămâne. Cererea și răspunsul la ea se înregistrează, iar decizia o ia organizația, nu Cadru. Până atunci, un document poate fi deja șters la cererea persoanei vizate, cu motivul înregistrat.</li><li style="margin:0 0 10px"><strong>Un model de evaluare a impactului (DPIA)</strong> pe care clienții îl vor putea adapta pentru propria prelucrare.</li></ul>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce nu vom face</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Nu vom accepta copii ale buletinelor. Nu vom folosi biometria. Nu vom semna documente: Cadru aduce contractul până la stadiul „gata de semnat”, iar semnarea rămâne la voi. Nu vom trimite datele partenerilor către servicii de inteligență artificială: tot ce face Cadru e cod determinist. Și nu vom ține datele voastre ostatice.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Dacă aveți întrebări despre cum lucrează Cadru cu datele, scrieți-mi. Iar dacă vreți să încercați produsul, abonați-vă la noutăți: vă vom anunța când va fi disponibil.</p>
-      <div style="margin:44px 0 0;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(22px,3vw,30px);display:flex;flex-direction:column;gap:16px">
-        <div><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 6px">Abonează-te la noutăți</h3><p style="font-size:14.5px;color:#6b6862;margin:0">Îți scriem cum avansează lucrul și te anunțăm când poți încerca produsul finit. Fără spam.</p></div>
-        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
-          <form onSubmit="{{ join }}" style="display:flex;gap:10px;flex-wrap:wrap">
-            <input type="hidden" name="_subject" value="Cadru — abonare jurnal"/>
-            <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 200px;min-width:0;padding:13px 15px;border:1px solid #d8d3c8;border-radius:9px;font-size:15px;font-family:inherit;background:#faf8f3;color:#1c1b18;outline:none" style-focus="border-color:var(--accent)"/>
-            <button type="submit" style="padding:13px 20px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap">Abonează-te</button>
-          </form>
-        </sc-if>
-        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
-          <span style="font-size:15px;color:var(--accent);font-weight:500">✓ Te-ai abonat. Pe curând!</span>
-        </sc-if>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:#6b6862;margin:32px 0 0;padding-top:20px;border-top:1px solid #e4e0d8">Chiril Știrbu este jurisconsult și lucrează zilnic cu contracte. Cadru se construiește pe instrumentele pe care și le-a făcut, de-a lungul multor ani, pentru propria muncă. În acest jurnal documentează, pas cu pas, cum se construiește produsul.</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP6 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">28 septembrie 2026 · Construcție · 9 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px">Primul pas: formularul prin care partenerul își trimite singur datele</h1>
-      <span style="display:block;font-size:15px;color:#6b6862;margin-bottom:28px">Chiril Știrbu, jurisconsult, fondatorul Cadru</span>
-      <p style="font-size:20px;line-height:1.6;color:#4a473f;margin:0 0 32px">O săptămână de la prima linie de cod până la prima versiune funcțională. Ce am construit, ce am refuzat să construiesc și de ce protecția datelor personale n-a fost un capitol adăugat la final, ci punctul de plecare.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Orice contract începe cu datele partenerului: denumirea, IDNO-ul, sediul, contul bancar, cine semnează și în temeiul cărui act. Tot mai des e nevoie și de mai mult: asociații, beneficiarii efectivi, declarația privind sancțiunile.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">În practica mea de jurist, asta arăta ani la rând la fel: un e-mail cu un tabel în Word, un răspuns după o săptămână, în alt format și cu jumătate din câmpuri goale, iar rechizitele le copiam manual în preambulul contractului. Cea mai scumpă greșeală din acest lanț e și cea mai banală: o cifră greșită în IBAN.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cadru are trei module, pe care le construiesc în ordine: <strong>formularul → baza de date → contractele</strong>. Am început cu formularul, fiindcă e exact etapa Crawl despre care am scris în acest jurnal: întâi aduni datele corect, de la sursă, și abia apoi le automatizezi. Tehnologia pusă peste date proaste nu face decât să multiplice greșelile.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Pe 17 septembrie am scris prima linie de cod. Pe 23 septembrie, prima versiune a pornit pe app.cadru.online. Acum formularul funcționează în regim de test.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Cum funcționează</h3>
-      <ol style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Juristul sau directorul creează în Cadru o invitație pentru partener.</li><li style="margin:0 0 10px">Cadru pregătește textul scrisorii, cu un link personal. <strong>Scrisoarea o trimite chiar el, din căsuța lui de e-mail.</strong></li><li style="margin:0 0 10px">Partenerul completează chestionarul pe secțiuni, cu ciorna salvată la fiecare pas, și, dacă dorește, atașează extrasul din Registrul de stat și procura.</li><li style="margin:0 0 10px">Chestionarul completat ajunge în lista celor care așteaptă verificarea. Juristul îl preia în fișa partenerului sau îl respinge.</li><li style="margin:0 0 10px">Din fișă, Cadru compune rechizitele pentru preambulul contractului, gata de copiat.</li></ol>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Deciziile care au contat</h3>
-      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Fără server de e-mail</h4>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Prima versiune trimitea invitațiile singură. Am renunțat la ea în aceeași zi și a fost cea mai bună decizie din tot proiectul.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">M-am pus în locul partenerului: primesc un e-mail de pe un domeniu necunoscut, cu un link, care îmi cere beneficiarii efectivi ai firmei. Nu doar seamănă cu phishing-ul: are exact forma pe care oamenii sunt învățați s-o recunoască și s-o ignore. Un astfel de link devine credibil nu prin design, ci prin faptul că vine de la omul cu care negociezi, în conversația în care se discută contractul.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Așa că Cadru nu trimite nimic. Îți pregătește scrisoarea, iar tu o trimiți de unde scrii de obicei. Odată cu serverul de e-mail au dispărut și problemele de livrare, filtrele de spam, retrimiterile și încă un terț care ar fi avut acces la adresele destinatarilor.</p>
-      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Declarația rămâne declarație</h4>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Ce trimite partenerul este <strong>declarația lui</strong>. Ea se păstrează neschimbată, cu versiune și dată. Partenerul primește o copie PDF imediat după trimitere, iar juristul o poate descărca oricând.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Separat de ea există <strong>fișa partenerului</strong>, sursa de referință pentru contracte. Datele ajung acolo doar după ce juristul verifică chestionarul. La o actualizare nimic nu se suprascrie automat: pe un ecran de comparație alegi, câmp cu câmp, ce devine valabil. Fiecare modificare a fișei intră în jurnal împreună cu proveniența ei (<em>din chestionarul nr. 3</em> sau <em>introdus manual</em>), data și valoarea anterioară.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">De ce contează: peste un an, partenerul ar putea susține că a dat date corecte și că altcineva le-a modificat. Cu Cadru, răspunsul se află în jurnal.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Această separare a închis și o breșă înainte de lansare: fără ea, cineva cu un link valid ar fi putut trimite un chestionar cu IDNO-ul altei firme și ar fi „actualizat” fișa acesteia. Acum niciun chestionar nu modifică fișa fără decizia unui om.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Formularul colectează ce a declarat partenerul. Baza păstrează ce a acceptat organizația. Cele două nu se amestecă niciodată.</blockquote>
-      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Nimic nu e bifat în locul omului</h4>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Întrebarea „Există vreun beneficiar efectiv inclus pe listele de sancțiuni ale UE, SUA sau Republicii Moldova?” nu are răspuns implicit. Nici întrebarea despre împuternicirile administratorului. Un astfel de răspuns are valoare doar pentru că l-a dat partenerul. Un „Nu” bifat de formular arată la fel, dar nu angajează pe nimeni. Dacă partenerul sare peste întrebare, formularul îl readuce la ea.</p>
-      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Un formular care nu pierde munca omului</h4>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Secțiunile sunt pagini separate, iar datele se salvează pe server la fiecare pas. Închizi fereastra, revii mâine prin același link și continui de unde ai rămas.</li><li style="margin:0 0 10px">Totul funcționează <strong>și fără JavaScript</strong>. Nu ca variantă de rezervă, ci ca bază.</li><li style="margin:0 0 10px">Codul SWIFT nu se tastează: îl stabilește serverul după banca aleasă, deci nu poate fi nici greșit, nici falsificat.</li><li style="margin:0 0 10px">IBAN-ul e verificat cu cifrele de control, așa că o cifră greșită e depistată pe loc. Iar un IBAN copiat dintr-un extras PDF, cu spații invizibile, e acceptat fără probleme.</li><li style="margin:0 0 10px">Se cere doar ce e relevant: adresa poștală apare doar dacă diferă de sediu, iar detaliile despre sancțiuni doar la răspunsul „Da”.</li></ul>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Protecția datelor: de la început, nu la final</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Formularul colectează date despre persoane fizice: beneficiari efectivi, asociați, persoana care semnează. Legea nr. 195/2024 privind protecția datelor cu caracter personal urmează modelul GDPR, inclusiv principiul protecției datelor încă din faza de proiectare (<em>privacy by design</em>). L-am aplicat literal.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Rolurile sunt clare.</strong> Organizația care folosește Cadru este <strong>operatorul</strong>: ea decide ce date cere de la parteneri și cât timp le păstrează. Cadru este <strong>persoana împuternicită de operator</strong>: execută, nu decide în locul lui. Din acest principiu decurg aproape toate celelalte decizii.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Minimizare, nu colectare „pentru orice eventualitate”.</strong> Regula e fixată în proiect: niciun câmp nu intră în formular dacă nu e scris de ce este necesar. Câteva consecințe:</p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Copia buletinului nu se acceptă.</strong> Nici acum, nici mai târziu.</li><li style="margin:0 0 10px"><strong>Statutul l-am scos.</strong> Conține datele personale ale fondatorilor și, în plus, ar putea servi drept dovadă că ai știut de o limitare a împuternicirilor administratorului. În locul lui, partenerul declară direct dacă administratorul poate semna singur.</li><li style="margin:0 0 10px">Numele persoanei de contact e opțional: funcția și un canal de legătură sunt suficiente.</li><li style="margin:0 0 10px">Țara asociatului și cetățenia beneficiarului efectiv sunt obligatorii, iar motivul e scris: în lipsa codurilor personale, sunt singurele date care deosebesc doi omonimi la verificarea sancțiunilor.</li><li style="margin:0 0 10px">Toate documentele sunt opționale. Atașarea lor e decizia partenerului.</li></ul>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Termenul de păstrare îl stabilește clientul, nu programul.</strong> Nu există valoare implicită: un număr pus de noi ar fi decizia noastră îmbrăcată în haina operatorului. Recomandăm trei ani, termenul general de prescripție, adică perioada în care poate apărea un litigiu în care trebuie dovedit cine a semnat și în temeiul cărui act. Dar recomandarea se aplică doar printr-o confirmare explicită, nu de la sine. Până nu e stabilit un termen, <strong>Cadru nu emite nicio invitație</strong>: a colecta date fără să știi cât le păstrezi înseamnă a promite că „le vom șterge cândva”.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Cadru nu șterge din proprie inițiativă documentele trimise.</strong> Când le expiră termenul, le arată juristului pe un ecran separat. El decide: le șterge sau prelungește termenul, cu indicarea motivului. Asimetria e simplă: o zi de păstrare în plus e o abatere vizibilă și reparabilă, pe când o procură ștearsă din greșeală ia cu ea valoarea probatorie a întregii declarații.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Fiecare ștergere lasă o urmă.</strong> Jurnalul de ștergeri păstrează datele de bază (tipul documentului, data, dimensiunea, amprenta SHA-256 a conținutului, calculată înainte ca fișierul să dispară), iar detaliile care pot conține date personale se șterg după trei ani. Poți dovedi că ai șters ce trebuia, fără să păstrezi ce ai șters.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Ce n-a fost trimis nu se păstrează.</strong> Dacă partenerul a început chestionarul, a atașat un fișier și s-a răzgândit, ciorna și fișierul se șterg automat la o săptămână după expirarea invitației. Formularul îl anunță despre asta pe fiecare pagină, iar numărul de zile din text provine din aceeași setare pe care o folosește ștergerea automată, așa că promisiunea și comportamentul nu pot diverge.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Și restul măsurilor:</strong></p>
-      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Fiecare consultare a datelor unui partener de către organizație, inclusiv descărcarea PDF-ului sau a unui document, intră în <strong>jurnalul de acces</strong>.</li><li style="margin:0 0 10px">Aplicația, baza de date și fișierele sunt găzduite <strong>în UE</strong>. Fișierele nu au link public: se deschid doar prin aplicație, cu o sesiune activă și cu înregistrare în jurnal.</li><li style="margin:0 0 10px">Linkul de invitație e tratat ca o parolă: în baza de date se păstrează doar amprenta lui, iar la prima deschidere linkul e înlocuit cu o sesiune și dispare din bara de adrese. Pagina formularului nu încarcă nimic de pe alte domenii (nici măcar fonturi), ca linkul să nu ajungă la terți.</li><li style="margin:0 0 10px"><strong>Datele personale nu ajung în jurnalele serverului de găzduire.</strong> Acolo nu putem controla cât timp se păstrează și nu le putem șterge la cerere, așa că nu le lăsăm să ajungă acolo.</li><li style="margin:0 0 10px"><strong>Copie de rezervă zilnică</strong>, într-un spațiu separat, cu o cheie de acces separată: aplicația nu poate șterge copiile. Restaurarea am testat-o în practică: copia din 24 septembrie a fost restaurată într-o bază goală într-o secundă, cu toate cele 21 de tabele. O copie de rezervă care n-a fost niciodată restaurată nu e încă o copie de rezervă.</li></ul>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Documentele formale (acordul de prelucrare a datelor, condițiile de utilizare, politica de confidențialitate) sunt în lucru și vor apărea odată cu conturile pentru alte organizații, în etapa următoare.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce nu face Cadru</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Nu semnează contracte și nu va semna. Aduce contractul până la stadiul „gata de semnat”, iar semnarea rămâne la voi, așa cum o faceți de obicei. Nu verifică partenerii în listele de sancțiuni: colectează declarația lor, iar verificarea rămâne în sarcina voastră. Și nu transmite datele către niciun serviciu de inteligență artificială: totul e cod determinist, iar aceleași date dau de fiecare dată același rezultat.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce urmează</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Formularul funcționează deja în regim de test. Urmează conturile pentru alte organizații, cu datele fiecăreia izolate la nivelul bazei de date, autentificare în doi pași, acordul de prelucrare a datelor și exportul tuturor datelor printr-un singur buton, fiindcă datele aparțin clientului, nu nouă. Apoi baza de parteneri și modulul de contracte, unde rechizitele din fișă vor fi preluate automat în șablon.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Abonați-vă la noutăți: vă vom scrie cum avansează lucrul și vă vom anunța când veți putea încerca produsul finit.</p>
-      <div style="margin:44px 0 0;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(22px,3vw,30px);display:flex;flex-direction:column;gap:16px">
-        <div><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 6px">Abonează-te la noutăți</h3><p style="font-size:14.5px;color:#6b6862;margin:0">Îți scriem cum avansează lucrul și te anunțăm când poți încerca produsul finit. Fără spam.</p></div>
-        <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
-          <form onSubmit="{{ join }}" style="display:flex;gap:10px;flex-wrap:wrap">
-            <input type="hidden" name="_subject" value="Cadru — abonare jurnal"/>
-            <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 200px;min-width:0;padding:13px 15px;border:1px solid #d8d3c8;border-radius:9px;font-size:15px;font-family:inherit;background:#faf8f3;color:#1c1b18;outline:none" style-focus="border-color:var(--accent)"/>
-            <button type="submit" style="padding:13px 20px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap">Abonează-te</button>
-          </form>
-        </sc-if>
-        <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
-          <span style="font-size:15px;color:var(--accent);font-weight:500">✓ Te-ai abonat. Pe curând!</span>
-        </sc-if>
-      </div>
-      <p style="font-size:15px;line-height:1.6;color:#6b6862;margin:32px 0 0;padding-top:20px;border-top:1px solid #e4e0d8">Chiril Știrbu este jurisconsult și lucrează zilnic cu contracte. Cadru se construiește pe instrumentele pe care și le-a făcut, de-a lungul multor ani, pentru propria muncă. În acest jurnal documentează, pas cu pas, cum se construiește produsul.</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP1 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">28 iunie 2026 · Metodă · 4 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Crawl, Walk, Run: nu sări etapele</h1>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Înainte de orice tehnică sau software, ai nevoie de o hartă. Una simplă, împrumutată din felul în care un copil învață să se miște: mai întâi se târăie, apoi merge, abia la final aleargă. CLM-ul se maturizează exact la fel — fazat. Iar dacă sari etapele, nu câștigi timp; doar te împiedici mai spectaculos.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Crawl — recunoști haosul</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Contracte împrăștiate prin foldere și e-mailuri, cereri ad-hoc «pe hol», copy-paste dintr-un document vechi în altul. Primul pas nu e să cumperi ceva — ci să faci haosul vizibil și să începi să-l reduci.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Walk — pui disciplină</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Standarde și proceduri simple, șabloane curate, un mod comun de lucru și igiena minimă a documentului: Track Changes, numerotare automată, structură unitară. Tot ce ține contractul «sănătos».</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Run — abia acum, tehnologia</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un software CLM serios capătă sens doar aici: depozit unic cu metadate vii — alerte de termene, raportare, integrări. Adică exact când știi deja <em>ce</em> îi ceri.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Tehnologia pusă peste dezordine doar accelerează dezordinea.</blockquote>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cea mai importantă lecție: nu trebuie, din prima zi, să schimbi întreaga organizație. Stabilește ce ai cu adevărat sub control și ce resurse ai deja la îndemână — și începe de acolo. Dacă procesele ușurează viața tuturor, se răspândesc ca cercurile pe apă și se implementează singure, fără politici scrise și sigilate.</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP2 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">25 iunie 2026 · Principii · 5 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Datoria tehnică, dar în contracte</h1>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Dacă ești din IT, cunoști deja conceptul de <em>technical debt</em>. Este obligația pe care un inginer și-o asumă implicit în clipa în care a terminat de scris o bucată de cod: trebuie s-o întrețină, s-o adapteze, uneori s-o explice altora. Regula e simplă — cu cât codul e mai neclar, cu atât «dobânda» la această datorie crește.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aceeași logică se transpune unu-la-unu în contracte. Un contract scris în grabă, cu termeni inconsecvenți și o structură haotică, creează o datorie rea. Iar dobânda ei nu se plătește azi — se plătește peste un an, doi, când nu-ți mai amintești exact ce ai convenit cu acel partener.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Un exemplu din port</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Mă sună colegii: clientul n-a dat destule camioane, n-a asigurat ritmul la descărcare — și din cauza asta stau terminalul, dana și nava. Pierderi pe minut. Munca mea, contra-cronometru: să scot din contract cum sunt împărțite obligațiile, zonele de răspundere, riscul; să prognozez cine, cui și cât compensează.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Și aici se duce resursa. Dacă în contract e dezordine — dacă acea condiție despre camioane rătăcește din capitol în capitol — sunt nevoit să citesc tot. Îmi ard atenția pe căutare. Iar când ajung la momentul care contează, concluzia juridică, resursa s-a dus deja — și acolo greșesc. Exact unde nu trebuie.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Într-un contract sănătos, orice element-cheie are un singur loc — și știi exact unde să-l cauți.</blockquote>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP3 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">22 iunie 2026 · Structură · 5 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">DRY: contract-cadru + condiții speciale</h1>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un contract poate avea peste douăzeci de pagini. Din ele, vreo cincisprezece sunt identice în fiecare contract — definiții, răspundere, notificări, soluționarea litigiilor. Doar o pagină-două conțin ce interesează cu adevărat: ce prestăm, când, pentru cine, la ce tarif.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Dacă ai douăzeci de astfel de șabloane, asta înseamnă peste trei sute de pagini de text duplicat. Și în ziua în care vrei să schimbi o singură prevedere standard — fie și o cifră, penalitatea de la 0,1% la 0,05% — trebuie să deschizi douăzeci de fișiere, să cauți, să înlocuiești, să salvezi. <strong>Douăzeci de ocazii de a greși.</strong></p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Răspunsul: DRY — Don't Repeat Yourself</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Scoate cele cincisprezece pagini comune într-un document separat — <strong>contractul-cadru</strong>. Acolo stă tot ce nu se schimbă de la o tranzacție la alta. Iar într-un al doilea document, mult mai scurt, scrii doar ce e specific: serviciul, tarifele, termenul — <strong>condițiile speciale</strong>. Un contract gata de semnat se asamblează din două piese. Ca un Lego.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Beneficiile se simt imediat. Cifra pe care voiai s-o modifici o schimbi acum într-un singur loc. Un contract pentru un serviciu nou se pregătește în vreo oră, nu într-o zi. Iar echipa — contabili, manageri de cont — nu mai sapă prin douăzeci de pagini: citește două, cu cifre în format cunoscut.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un ultim lucru: sistemul nu e bătut în cuie, e un document viu. O dată pe an strângi tot ce s-a acumulat — observațiile echipei, propriile descoperiri — compilezi o versiune nouă și de acolo lucrezi după ea. Cu disciplină de versiuni chiar în numele fișierului: data și numărul.</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP4 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">18 iunie 2026 · Fundamente · 6 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">Ce este, de fapt, un contract?</h1>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">De obicei spunem «contract» și înțelegem, tacit, un document — pe hârtie sau electronic. Dar dacă deschidem articolul 992 din Codul civil, citim altceva.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">«Contract este acordul de voinţă realizat între două sau mai multe persoane prin care se stabilesc, se modifică sau se sting raporturi juridice.»<span style="display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9b968a;margin-top:12px">art. 992 Cod civil — niciun cuvânt despre «document»</span></blockquote>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Cazul emoji-ului de 82.000 $</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Canada, 2021. Un cumpărător de cereale trimite unui fermier poza unui contract pentru 86 de tone de in și scrie: «please confirm». Fermierul răspunde cu un singur emoji — 👍 — și apoi nu livrează nimic. În instanță s-a apărat: «un degețel nu e semnătură». N-a ținut. Instanța s-a uitat la cum lucraseră cei doi până atunci și a decis că, în acel context, 👍 înseamnă contract încheiat. Fermierul a plătit peste 82.000 $.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Asta nu înseamnă că orice emoji e o semnătură. E doar o probă. Și nicio probă nu are o putere dinainte stabilită — nici emoji-ul, nici semnătura olografă, nici ștampila. Contextul decide. De-aceea munca noastră nu e să «semnăm», ci să adunăm un dosar care, în ansamblu, dovedește.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Trei moduri de a proba acordul</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 14px"><strong>Hârtie + semnătură olografă.</strong> Funcționează și azi, dar cere prezență fizică, logistică, timp — și e vulnerabilă: autenticitatea paginilor, identitatea semnatarului.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 14px"><strong>Scan + e-mail.</strong> Singur dovedește puțin. Dar împreună cu corespondența și cu ce face partenerul după — comandă, plătește, trimite camioanele — dovedește în ansamblu. Regula: salvează e-mailul în aceeași mapă cu PDF-ul.</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Semnătura electronică calificată (QES).</strong> Standardul de aur: fără prezență fizică, exemplare originale nelimitate, iar dovada e în interiorul fișierului. Nu e ștampila de pe pagină — e un cod criptografic care identifică semnatarul și «îngheață» documentul.</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
-  <sc-if value="{{ isP5 }}" hint-placeholder-val="{{ false }}">
-    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px">← Toate articolele</button>
-      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">15 iunie 2026 · Tehnologie · 3 min</span>
-      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">AI ≠ automatizare: scriptul de 50 de cenți</h1>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Când cineva îți vinde o «automatizare pe bază de inteligență artificială», merită o întrebare pusă înainte de a semna ceva: chiar e nevoie de un model care «gândește» de fiecare dată — sau e o muncă mecanică, mereu aceeași?</p>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Un model generativ pus pe muncă repetitivă plătește token cu token — adică bani — pentru ceva ce un script banal (Python, ba chiar VBA în Excel) face o dată, gratis, și apoi de fiecare dată identic. Și, apropo, scriptul ăla ți-l scrie tot AI-ul.</p>
-      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px;margin:36px 0 12px">Exemplul arhivei</h3>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Aveam o arhivă de contracte vechi, scanate, de citit, sortat, redenumit și introdus într-un registru. Prima idee: un agent AI autonom. Dar am întrebat chiar modelul dacă e cel mai rațional mod — și m-a sfătuit să nu-l folosesc așa. Mi-a scris un program clasic în Python. Rezultatul: vreo sută de contracte procesate în câteva minute, cu cam o jumătate de dolar — în loc de un agent care ar fi «mestecat» tokeni ore în șir.</p>
-      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Unde bagi AI-ul în lucru e o evaluare a riscului, nu o alegere tehnică.</blockquote>
-      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Și mai e un risc de luat în calcul: AI-ul procesează datele clienților — date cu caracter personal — pe servere aflate, posibil, peste ocean. Are loc un transfer transfrontalier, pentru care legea cere «garanții adecvate». Lipsa lor se poate plăti scump. Deci: cu ochii deschiși, nu fiindcă «așa e moda».</p>
-      <button onClick="{{ back }}" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px">← Toate articolele</button>
-    </article>
-  </sc-if>
 
   <footer style="background:#f2efe7;border-top:1px solid #e4e0d8">
     <div style="max-width:1140px;margin:0 auto;padding:clamp(36px,4vw,52px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between">
@@ -279,71 +77,24 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { selected: null, joined: false };
-
-  // Endpoint Formspree — același ca pe pagina principală (abonare la jurnal)
-  FORMSPREE = 'https://formspree.io/f/mykqppvj';
-
   componentDidMount() {
-    // Link direct spre un articol: Jurnal.dc.html#p7 (așa trimit anunțurile de pe pagina principală).
+    // Linkurile vechi de forma Jurnal.dc.html#p7 duc la pagina articolului.
     try {
       const id = (location.hash || '').slice(1);
       const list = Array.isArray(window.CADRU_JURNAL) ? window.CADRU_JURNAL : [];
-      if (list.some((x) => x.id === id)) this.setState({ selected: id });
-    } catch (_) {}
-    try {
-      if (localStorage.getItem('cadru_joined') === '1') this.setState({ joined: true });
+      const hit = list.find((x) => x.id === id);
+      if (hit) location.replace('jurnal/' + hit.slug + '.html');
     } catch (_) {}
   }
 
   renderVals() {
-    const sel = (id) => () => { this.setState({ selected: id }); try { history.replaceState(null, '', '#' + id); window.scrollTo(0, 0); } catch (_) {} };
-    const back = () => { this.setState({ selected: null }); try { history.replaceState(null, '', location.pathname + location.search); window.scrollTo(0, 0); } catch (_) {} };
-    const s = this.state.selected;
-    const join = (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const input = form.querySelector('input[type=email]');
-      const v = input && input.value ? input.value.trim() : '';
-      if (!v) return;
-      try {
-        const k = 'cadru_waitlist';
-        const arr = JSON.parse(localStorage.getItem(k) || '[]');
-        arr.push({ email: v, ts: Date.now() });
-        localStorage.setItem(k, JSON.stringify(arr));
-        localStorage.setItem('cadru_joined', '1');
-      } catch (_) {}
-      try {
-        fetch(this.FORMSPREE, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form),
-        }).catch(function () {});
-      } catch (_) {}
-      try {
-        if (window.goatcounter && window.goatcounter.count) {
-          window.goatcounter.count({ path: 'ev-signup', title: 'Cadru — abonare jurnal (articol)', event: true });
-        }
-      } catch (_) {}
-      this.setState({ joined: true });
-    };
     const list = (typeof window !== 'undefined' && Array.isArray(window.CADRU_JURNAL)) ? window.CADRU_JURNAL : [];
-    const articles = list.map((x) => ({
-      ...x,
-      meta: x.date + ' · ' + x.category + ' · ' + x.minutes + ' min',
-      open: sel(x.id),
-    }));
-    // isP1, isP2, ...: care articol e deschis. Se deduc din listă, nu se scriu de mână.
-    const open = {};
-    list.forEach((x) => { open['is' + x.id.toUpperCase()] = s === x.id; });
     return {
-      ...open,
-      articles,
-      showList: s === null,
-      joined: this.state.joined,
-      notJoined: !this.state.joined,
-      join,
-      back,
+      articles: list.map((x) => ({
+        ...x,
+        href: 'jurnal/' + x.slug + '.html',
+        meta: x.date + ' · ' + x.category + ' · ' + x.minutes + ' min',
+      })),
     };
   }
 }
