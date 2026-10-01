@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./articles.js"></script>
 <script src="./support.js"></script>
 <script data-goatcounter="https://cadruclm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -168,10 +169,9 @@
       <h2 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(27px,3.8vw,44px);line-height:1.08;letter-spacing:-0.01em;margin:0 0 18px">Construim în public.</h2>
       <p style="font-size:clamp(16px,1.4vw,18px);line-height:1.62;color:#4a473f;margin:0 0 44px;max-width:660px">Documentăm fiecare pas — decizii de produs, capcane juridice, ce funcționează și ce nu. Primele schițe de lucru:</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(16px,2vw,22px);margin-bottom:24px">
-        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">1 oct 2026 · Date personale</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Datele voastre rămân ale voastre</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Ce date nu cerem, cine le vede și cum le luați înapoi cu un singur buton.</span></a>
-        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">28 sept 2026 · Construcție</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Primul pas: formularul pentru datele partenerilor</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Prima piesă din Cadru funcționează, cu protecția datelor gândită de la început.</span></a>
-        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">28 iun 2026 · Metodă</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Crawl, Walk, Run: nu sări etapele</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Tehnologia peste haos doar accelerează haosul.</span></a>
-        <a href="Jurnal.dc.html" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">25 iun 2026 · Principii</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">Datoria tehnică, dar în contracte</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">Dobânda o plătești peste un an, în mijlocul unei crize.</span></a>
+        <sc-for list="{{ teasers }}" as="t" hint-placeholder-count="4">
+          <a href="{{ t.href }}" style="text-decoration:none;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:24px;min-height:150px;display:flex;flex-direction:column;gap:11px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(28,27,24,0.4)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9b968a">{{ t.meta }}</span><span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:18px;line-height:1.22;color:#1c1b18">{{ t.title }}</span><span style="font-size:13.5px;line-height:1.5;color:#6b6862">{{ t.text }}</span></a>
+        </sc-for>
       </div>
       <div style="margin-bottom:44px"><a href="Jurnal.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);text-decoration:none">Toate articolele →</a></div>
       <div id="urmareste" style="scroll-margin-top:90px;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(24px,3vw,34px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
@@ -315,7 +315,16 @@ class Component extends DCLogic {
       } catch (_) {}
       this.setState({ joined: true });
     };
+    // Anunțurile din secțiunea Jurnal: primele 4 articole din articles.js.
+    const list = (typeof window !== 'undefined' && Array.isArray(window.CADRU_JURNAL)) ? window.CADRU_JURNAL : [];
+    const teasers = list.slice(0, 4).map((x) => ({
+      href: 'Jurnal.dc.html#' + x.id,
+      meta: x.date + ' · ' + x.category,
+      title: x.teaserTitle || x.title,
+      text: x.teaser || x.summary,
+    }));
     return {
+      teasers,
       joined: this.state.joined,
       notJoined: !this.state.joined,
       join,
