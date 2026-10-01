@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primul pas: formularul prin care partenerul își trimite singur datele — Cadru</title>
+<meta name="description" content="Prima piesă din Cadru funcționează. Ce am construit, ce am refuzat să construiesc și de ce protecția datelor personale a fost punctul de plecare.">
+<link rel="canonical" href="https://cadru.online/jurnal/primul-pas-formularul.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cadru">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:url" content="https://cadru.online/jurnal/primul-pas-formularul.html">
+<meta property="og:title" content="Primul pas: formularul prin care partenerul își trimite singur datele">
+<meta property="og:description" content="Prima piesă din Cadru funcționează. Ce am construit, ce am refuzat să construiesc și de ce protecția datelor personale a fost punctul de plecare.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  form.sub input:focus{border-color:var(--accent) !important;}
+  [hidden]{display:none !important;}
+</style>
+<script data-goatcounter="https://cadruclm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div style="--accent:#2f6b4f;background:#f7f5f0;color:#1c1b18;font-family:'IBM Plex Sans',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,245,240,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:14px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;gap:18px">
+      <a href="../Cadru.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+        <span style="width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block"></span>
+        <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;letter-spacing:-0.01em">Cadru</span>
+      </a>
+      <a href="../Cadru.dc.html" style="font-size:14.5px;color:#3a3833;text-decoration:none">← Înapoi la site</a>
+    </div>
+  </header>
+
+    <article style="max-width:720px;margin:0 auto;padding:clamp(40px,5vw,64px) clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
+      <a href="../Jurnal.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:30px;display:inline-block;text-decoration:none">← Toate articolele</a>
+      <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;color:#9b968a;margin-bottom:14px">28 septembrie 2026 · Construcție · 9 min</span>
+      <h1 style="font-family:'IBM Plex Serif',serif;font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px">Primul pas: formularul prin care partenerul își trimite singur datele</h1>
+      <span style="display:block;font-size:15px;color:#6b6862;margin-bottom:28px">Chiril Știrbu, jurisconsult, fondatorul Cadru</span>
+      <p style="font-size:20px;line-height:1.6;color:#4a473f;margin:0 0 32px">O săptămână de la prima linie de cod până la prima versiune funcțională. Ce am construit, ce am refuzat să construiesc și de ce protecția datelor personale n-a fost un capitol adăugat la final, ci punctul de plecare.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Orice contract începe cu datele partenerului: denumirea, IDNO-ul, sediul, contul bancar, cine semnează și în temeiul cărui act. Tot mai des e nevoie și de mai mult: asociații, beneficiarii efectivi, declarația privind sancțiunile.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">În practica mea de jurist, asta arăta ani la rând la fel: un e-mail cu un tabel în Word, un răspuns după o săptămână, în alt format și cu jumătate din câmpuri goale, iar rechizitele le copiam manual în preambulul contractului. Cea mai scumpă greșeală din acest lanț e și cea mai banală: o cifră greșită în IBAN.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Cadru are trei module, pe care le construiesc în ordine: <strong>formularul → baza de date → contractele</strong>. Am început cu formularul, fiindcă e exact etapa Crawl despre care am scris în acest jurnal: întâi aduni datele corect, de la sursă, și abia apoi le automatizezi. Tehnologia pusă peste date proaste nu face decât să multiplice greșelile.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Pe 17 septembrie am scris prima linie de cod. Pe 23 septembrie, prima versiune a pornit pe app.cadru.online. Acum formularul funcționează în regim de test.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Cum funcționează</h3>
+      <ol style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Juristul sau directorul creează în Cadru o invitație pentru partener.</li><li style="margin:0 0 10px">Cadru pregătește textul scrisorii, cu un link personal. <strong>Scrisoarea o trimite chiar el, din căsuța lui de e-mail.</strong></li><li style="margin:0 0 10px">Partenerul completează chestionarul pe secțiuni, cu ciorna salvată la fiecare pas, și, dacă dorește, atașează extrasul din Registrul de stat și procura.</li><li style="margin:0 0 10px">Chestionarul completat ajunge în lista celor care așteaptă verificarea. Juristul îl preia în fișa partenerului sau îl respinge.</li><li style="margin:0 0 10px">Din fișă, Cadru compune rechizitele pentru preambulul contractului, gata de copiat.</li></ol>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Deciziile care au contat</h3>
+      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Fără server de e-mail</h4>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Prima versiune trimitea invitațiile singură. Am renunțat la ea în aceeași zi și a fost cea mai bună decizie din tot proiectul.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">M-am pus în locul partenerului: primesc un e-mail de pe un domeniu necunoscut, cu un link, care îmi cere beneficiarii efectivi ai firmei. Nu doar seamănă cu phishing-ul: are exact forma pe care oamenii sunt învățați s-o recunoască și s-o ignore. Un astfel de link devine credibil nu prin design, ci prin faptul că vine de la omul cu care negociezi, în conversația în care se discută contractul.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Așa că Cadru nu trimite nimic. Îți pregătește scrisoarea, iar tu o trimiți de unde scrii de obicei. Odată cu serverul de e-mail au dispărut și problemele de livrare, filtrele de spam, retrimiterile și încă un terț care ar fi avut acces la adresele destinatarilor.</p>
+      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Declarația rămâne declarație</h4>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Ce trimite partenerul este <strong>declarația lui</strong>. Ea se păstrează neschimbată, cu versiune și dată. Partenerul primește o copie PDF imediat după trimitere, iar juristul o poate descărca oricând.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Separat de ea există <strong>fișa partenerului</strong>, sursa de referință pentru contracte. Datele ajung acolo doar după ce juristul verifică chestionarul. La o actualizare nimic nu se suprascrie automat: pe un ecran de comparație alegi, câmp cu câmp, ce devine valabil. Fiecare modificare a fișei intră în jurnal împreună cu proveniența ei (<em>din chestionarul nr. 3</em> sau <em>introdus manual</em>), data și valoarea anterioară.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">De ce contează: peste un an, partenerul ar putea susține că a dat date corecte și că altcineva le-a modificat. Cu Cadru, răspunsul se află în jurnal.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Această separare a închis și o breșă înainte de lansare: fără ea, cineva cu un link valid ar fi putut trimite un chestionar cu IDNO-ul altei firme și ar fi „actualizat” fișa acesteia. Acum niciun chestionar nu modifică fișa fără decizia unui om.</p>
+      <blockquote style="margin:32px 0;border-left:3px solid var(--accent);padding:4px 0 4px 24px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:21px;line-height:1.45;color:#1c1b18">Formularul colectează ce a declarat partenerul. Baza păstrează ce a acceptat organizația. Cele două nu se amestecă niciodată.</blockquote>
+      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Nimic nu e bifat în locul omului</h4>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Întrebarea „Există vreun beneficiar efectiv inclus pe listele de sancțiuni ale UE, SUA sau Republicii Moldova?” nu are răspuns implicit. Nici întrebarea despre împuternicirile administratorului. Un astfel de răspuns are valoare doar pentru că l-a dat partenerul. Un „Nu” bifat de formular arată la fel, dar nu angajează pe nimeni. Dacă partenerul sare peste întrebare, formularul îl readuce la ea.</p>
+      <h4 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;margin:34px 0 12px">Un formular care nu pierde munca omului</h4>
+      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Secțiunile sunt pagini separate, iar datele se salvează pe server la fiecare pas. Închizi fereastra, revii mâine prin același link și continui de unde ai rămas.</li><li style="margin:0 0 10px">Totul funcționează <strong>și fără JavaScript</strong>. Nu ca variantă de rezervă, ci ca bază.</li><li style="margin:0 0 10px">Codul SWIFT nu se tastează: îl stabilește serverul după banca aleasă, deci nu poate fi nici greșit, nici falsificat.</li><li style="margin:0 0 10px">IBAN-ul e verificat cu cifrele de control, așa că o cifră greșită e depistată pe loc. Iar un IBAN copiat dintr-un extras PDF, cu spații invizibile, e acceptat fără probleme.</li><li style="margin:0 0 10px">Se cere doar ce e relevant: adresa poștală apare doar dacă diferă de sediu, iar detaliile despre sancțiuni doar la răspunsul „Da”.</li></ul>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Protecția datelor: de la început, nu la final</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Formularul colectează date despre persoane fizice: beneficiari efectivi, asociați, persoana care semnează. Legea nr. 195/2024 privind protecția datelor cu caracter personal urmează modelul GDPR, inclusiv principiul protecției datelor încă din faza de proiectare (<em>privacy by design</em>). L-am aplicat literal.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Rolurile sunt clare.</strong> Organizația care folosește Cadru este <strong>operatorul</strong>: ea decide ce date cere de la parteneri și cât timp le păstrează. Cadru este <strong>persoana împuternicită de operator</strong>: execută, nu decide în locul lui. Din acest principiu decurg aproape toate celelalte decizii.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Minimizare, nu colectare „pentru orice eventualitate”.</strong> Regula e fixată în proiect: niciun câmp nu intră în formular dacă nu e scris de ce este necesar. Câteva consecințe:</p>
+      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px"><strong>Copia buletinului nu se acceptă.</strong> Nici acum, nici mai târziu.</li><li style="margin:0 0 10px"><strong>Statutul l-am scos.</strong> Conține datele personale ale fondatorilor și, în plus, ar putea servi drept dovadă că ai știut de o limitare a împuternicirilor administratorului. În locul lui, partenerul declară direct dacă administratorul poate semna singur.</li><li style="margin:0 0 10px">Numele persoanei de contact e opțional: funcția și un canal de legătură sunt suficiente.</li><li style="margin:0 0 10px">Țara asociatului și cetățenia beneficiarului efectiv sunt obligatorii, iar motivul e scris: în lipsa codurilor personale, sunt singurele date care deosebesc doi omonimi la verificarea sancțiunilor.</li><li style="margin:0 0 10px">Toate documentele sunt opționale. Atașarea lor e decizia partenerului.</li></ul>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Termenul de păstrare îl stabilește clientul, nu programul.</strong> Nu există valoare implicită: un număr pus de noi ar fi decizia noastră îmbrăcată în haina operatorului. Recomandăm trei ani, termenul general de prescripție, adică perioada în care poate apărea un litigiu în care trebuie dovedit cine a semnat și în temeiul cărui act. Dar recomandarea se aplică doar printr-o confirmare explicită, nu de la sine. Până nu e stabilit un termen, <strong>Cadru nu emite nicio invitație</strong>: a colecta date fără să știi cât le păstrezi înseamnă a promite că „le vom șterge cândva”.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Cadru nu șterge din proprie inițiativă documentele trimise.</strong> Când le expiră termenul, le arată juristului pe un ecran separat. El decide: le șterge sau prelungește termenul, cu indicarea motivului. Asimetria e simplă: o zi de păstrare în plus e o abatere vizibilă și reparabilă, pe când o procură ștearsă din greșeală ia cu ea valoarea probatorie a întregii declarații.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Fiecare ștergere lasă o urmă.</strong> Jurnalul de ștergeri păstrează datele de bază (tipul documentului, data, dimensiunea, amprenta SHA-256 a conținutului, calculată înainte ca fișierul să dispară), iar detaliile care pot conține date personale se șterg după trei ani. Poți dovedi că ai șters ce trebuia, fără să păstrezi ce ai șters.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Ce n-a fost trimis nu se păstrează.</strong> Dacă partenerul a început chestionarul, a atașat un fișier și s-a răzgândit, ciorna și fișierul se șterg automat la o săptămână după expirarea invitației. Formularul îl anunță despre asta pe fiecare pagină, iar numărul de zile din text provine din aceeași setare pe care o folosește ștergerea automată, așa că promisiunea și comportamentul nu pot diverge.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px"><strong>Și restul măsurilor:</strong></p>
+      <ul style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px;padding-left:24px"><li style="margin:0 0 10px">Fiecare consultare a datelor unui partener de către organizație, inclusiv descărcarea PDF-ului sau a unui document, intră în <strong>jurnalul de acces</strong>.</li><li style="margin:0 0 10px">Aplicația, baza de date și fișierele sunt găzduite <strong>în UE</strong>. Fișierele nu au link public: se deschid doar prin aplicație, cu o sesiune activă și cu înregistrare în jurnal.</li><li style="margin:0 0 10px">Linkul de invitație e tratat ca o parolă: în baza de date se păstrează doar amprenta lui, iar la prima deschidere linkul e înlocuit cu o sesiune și dispare din bara de adrese. Pagina formularului nu încarcă nimic de pe alte domenii (nici măcar fonturi), ca linkul să nu ajungă la terți.</li><li style="margin:0 0 10px"><strong>Datele personale nu ajung în jurnalele serverului de găzduire.</strong> Acolo nu putem controla cât timp se păstrează și nu le putem șterge la cerere, așa că nu le lăsăm să ajungă acolo.</li><li style="margin:0 0 10px"><strong>Copie de rezervă zilnică</strong>, într-un spațiu separat, cu o cheie de acces separată: aplicația nu poate șterge copiile. Restaurarea am testat-o în practică: copia din 24 septembrie a fost restaurată într-o bază goală într-o secundă, cu toate cele 21 de tabele. O copie de rezervă care n-a fost niciodată restaurată nu e încă o copie de rezervă.</li></ul>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Documentele formale (acordul de prelucrare a datelor, condițiile de utilizare, politica de confidențialitate) sunt în lucru și vor apărea odată cu conturile pentru alte organizații, în etapa următoare.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce nu face Cadru</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Nu semnează contracte și nu va semna. Aduce contractul până la stadiul „gata de semnat”, iar semnarea rămâne la voi, așa cum o faceți de obicei. Nu verifică partenerii în listele de sancțiuni: colectează declarația lor, iar verificarea rămâne în sarcina voastră. Și nu transmite datele către niciun serviciu de inteligență artificială: totul e cod determinist, iar aceleași date dau de fiecare dată același rezultat.</p>
+      <h3 style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:26px;margin:48px 0 14px">Ce urmează</h3>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Formularul funcționează deja în regim de test. Urmează conturile pentru alte organizații, cu datele fiecăreia izolate la nivelul bazei de date, autentificare în doi pași, acordul de prelucrare a datelor și exportul tuturor datelor printr-un singur buton, fiindcă datele aparțin clientului, nu nouă. Apoi baza de parteneri și modulul de contracte, unde rechizitele din fișă vor fi preluate automat în șablon.</p>
+      <p style="font-size:18px;line-height:1.7;color:#2e2c27;margin:0 0 20px">Abonați-vă la noutăți: vă vom scrie cum avansează lucrul și vă vom anunța când veți putea încerca produsul finit.</p>
+      <div style="margin:44px 0 0;background:#fff;border:1px solid #e4e0d8;border-radius:13px;padding:clamp(22px,3vw,30px);display:flex;flex-direction:column;gap:16px">
+        <div><h3 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 6px">Abonează-te la noutăți</h3><p style="font-size:14.5px;color:#6b6862;margin:0">Îți scriem cum avansează lucrul și te anunțăm când poți încerca produsul finit. Fără spam.</p></div>
+          <form class="sub" action="https://formspree.io/f/mykqppvj" method="POST" style="display:flex;gap:10px;flex-wrap:wrap">
+            <input type="hidden" name="_subject" value="Cadru — abonare jurnal"/>
+            <input type="email" name="email" required placeholder="nume@companie.md" style="flex:1 1 200px;min-width:0;padding:13px 15px;border:1px solid #d8d3c8;border-radius:9px;font-size:15px;font-family:inherit;background:#faf8f3;color:#1c1b18;outline:none"/>
+            <button type="submit" style="padding:13px 20px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap">Abonează-te</button>
+          </form>
+        <span class="sub-ok" hidden style="font-size:15px;color:var(--accent);font-weight:500">✓ Te-ai abonat. Pe curând!</span>
+      </div>
+      <p style="font-size:15px;line-height:1.6;color:#6b6862;margin:32px 0 0;padding-top:20px;border-top:1px solid #e4e0d8">Chiril Știrbu este jurisconsult și lucrează zilnic cu contracte. Cadru se construiește pe instrumentele pe care și le-a făcut, de-a lungul multor ani, pentru propria muncă. În acest jurnal documentează, pas cu pas, cum se construiește produsul.</p>
+      <a href="../Jurnal.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-top:24px;display:inline-block;text-decoration:none">← Toate articolele</a>
+    </article>
+
+  <footer style="background:#f2efe7;border-top:1px solid #e4e0d8">
+    <div style="max-width:1140px;margin:0 auto;padding:clamp(36px,4vw,52px) clamp(20px,5vw,40px);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between">
+      <span style="font-size:12.5px;color:#9b968a;max-width:560px">Jurnal de produs Cadru. Schițe pe parcurs — de la workshop-ul «Contracte sub control», ABSL Business Workshops.</span>
+      <a href="../Cadru.dc.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-family:'IBM Plex Mono',monospace">← Cadru</a>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function () {
+  // Abonare: trimitere silențioasă către Formspree, ca pe celelalte pagini. Fără JS, formularul se trimite normal.
+  var form = document.querySelector('form.sub');
+  if (!form) return;
+  var ok = document.querySelector('.sub-ok');
+  function done() { form.hidden = true; ok.hidden = false; }
+  try { if (localStorage.getItem('cadru_joined') === '1') done(); } catch (_) {}
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = form.querySelector('input[type=email]');
+    var v = input && input.value ? input.value.trim() : '';
+    if (!v) return;
+    try {
+      var arr = JSON.parse(localStorage.getItem('cadru_waitlist') || '[]');
+      arr.push({ email: v, ts: Date.now() });
+      localStorage.setItem('cadru_waitlist', JSON.stringify(arr));
+      localStorage.setItem('cadru_joined', '1');
+    } catch (_) {}
+    try { fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) }).catch(function () {}); } catch (_) {}
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'ev-signup', title: 'Cadru — abonare jurnal (articol)', event: true }); } catch (_) {}
+    done();
+  });
+})();
+</script>
+</body>
+</html>

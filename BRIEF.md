@@ -35,7 +35,9 @@ Fișierele `Cadru.dc.html` și `Jurnal.dc.html` **nu sunt HTML/React standard**.
 ```
 index.html        — redirect simplu către Cadru.dc.html (pagina de start la deschiderea domeniului)
 Cadru.dc.html      — landing page-ul principal (o singură pagină, scroll cu ancore)
-Jurnal.dc.html     — pagina de blog ("Jurnal de produs") cu 5 articole placeholder
+Jurnal.dc.html     — pagina de blog ("Jurnal de produs"): lista articolelor, din articles.js
+articles.js        — lista articolelor (sursa pentru Jurnal și anunțurile de pe pagina principală)
+jurnal/            — câte o pagină pentru fiecare articol (link de trimis, previzualizare proprie)
 support.js         — runtime-ul (nu edita, doar copiază-l dacă rescrii)
 README.md          — instrucțiuni scurte de deploy
 BRIEF.md           — acest document
@@ -66,7 +68,7 @@ Pagină cu listă de articole (5 carduri) + view de articol individual (state lo
 4. Ce este, de fapt, un contract? (art. 992, cazul emoji-ului 👍 de 82.000$)
 5. AI ≠ automatizare: scriptul de 50 de cenți
 
-**Lista articolelor e în `articles.js`** (de la 1.10.2026): din ea se construiesc cardurile din `Jurnal.dc.html` și anunțurile din secțiunea Jurnal a paginii principale (primele 4). Articol nou = o intrare sus în `articles.js` + textul articolului în `Jurnal.dc.html`, într-un bloc `<sc-if value="{{ isP8 }}">` (id-ul din listă, cu majuscule). Cardurile nu se mai scriu de mână nicăieri. Anunțurile duc direct la articol (`Jurnal.dc.html#p7`).
+**Fiecare articol are pagina lui: `jurnal/<slug>.html`** (de la 1.10.2026), HTML obișnuit, fără runtime, cu `<title>`, descriere și etichete `og:*` proprii — linkul se poate trimite, iar Facebook și mesageriile arată titlul și descrierea articolului. `Jurnal.dc.html` e doar lista. **Lista e în `articles.js`**: din ea se construiesc cardurile din Jurnal și anunțurile din secțiunea Jurnal a paginii principale (primele 4). Articol nou: copiați o pagină din `jurnal/` sub un slug nou, înlocuiți textul și cele 6 rânduri din `<head>` (title, description, canonical, og:url, og:title, og:description), apoi adăugați o intrare sus în `articles.js` cu același slug. Linkurile vechi `Jurnal.dc.html#p7` duc la pagina articolului.
 
 ## 6. Funcționalitate live
 
