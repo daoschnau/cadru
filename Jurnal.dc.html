@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./articles.js"></script>
 <script src="./support.js"></script>
 <script data-goatcounter="https://cadruclm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -46,54 +47,14 @@
     <section style="max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(60px,8vw,100px)">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.4vw,26px)">
 
-        <button onClick="{{ selP7 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">1 oct 2026 · Date personale · 9 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Datele voastre rămân ale voastre: cum lucrează Cadru cu datele personale</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Cadru păstrează date despre oameni care nu au ales Cadru: beneficiarii efectivi, administratorii și reprezentanții partenerilor voștri. Ce am decis deja ca să le protejăm, ce funcționează astăzi și ce nu e încă gata.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP6 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">28 sept 2026 · Construcție · 9 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Primul pas: formularul prin care partenerul își trimite singur datele</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Prima piesă din Cadru funcționează. Ce am construit, ce am refuzat să construiesc și de ce protecția datelor personale a fost punctul de plecare.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP1 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">28 iun 2026 · Metodă · 4 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Crawl, Walk, Run: nu sări etapele</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Tehnologia pusă peste haos doar accelerează haosul. De ce maturizarea CLM se face fazat — și de ce începi de la ce e aproape gratuit.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP2 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">25 iun 2026 · Principii · 5 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Datoria tehnică, dar în contracte</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Un contract scris în grabă nu te costă azi. Dobânda o plătești peste un an — exact când deschizi documentul în mijlocul unei crize.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP3 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">22 iun 2026 · Structură · 5 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">DRY: contract-cadru + condiții speciale</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Douăzeci de șabloane înseamnă trei sute de pagini duplicate — și douăzeci de ocazii de a greși la fiecare modificare. Soluția se asamblează ca un Lego.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP4 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">18 iun 2026 · Fundamente · 6 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">Ce este, de fapt, un contract?</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">Articolul 992 nu spune niciun cuvânt despre «document». Iar un emoji 👍 a costat un fermier 82.000 $. Contractul e acordul de voință — documentul e doar o probă.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
-
-        <button onClick="{{ selP5 }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">15 iun 2026 · Tehnologie · 3 min</span>
-          <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">AI ≠ automatizare: scriptul de 50 de cenți</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#6b6862">O sută de contracte sortate în câteva minute, pe jumătate de dolar. Când un script banal bate modelul generativ — și de ce «unde bagi AI» e o decizie de risc, nu una tehnică.</span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
-        </button>
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
+          <button onClick="{{ a.open }}" style="text-align:left;font-family:inherit;cursor:pointer;background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:13px;transition:transform .15s,box-shadow .15s" style-hover="transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(28,27,24,0.4)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.04em;color:#9b968a">{{ a.meta }}</span>
+            <span style="font-family:'IBM Plex Serif',serif;font-weight:600;font-size:21px;line-height:1.2;color:#1c1b18">{{ a.title }}</span>
+            <span style="font-size:14.5px;line-height:1.55;color:#6b6862">{{ a.summary }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--accent);margin-top:4px">Citește →</span>
+          </button>
+        </sc-for>
 
       </div>
       <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#a39d8e;margin:42px 0 0">Schițe de lucru · se completează pe parcurs</p>
@@ -324,14 +285,20 @@ class Component extends DCLogic {
   FORMSPREE = 'https://formspree.io/f/mykqppvj';
 
   componentDidMount() {
+    // Link direct spre un articol: Jurnal.dc.html#p7 (așa trimit anunțurile de pe pagina principală).
+    try {
+      const id = (location.hash || '').slice(1);
+      const list = Array.isArray(window.CADRU_JURNAL) ? window.CADRU_JURNAL : [];
+      if (list.some((x) => x.id === id)) this.setState({ selected: id });
+    } catch (_) {}
     try {
       if (localStorage.getItem('cadru_joined') === '1') this.setState({ joined: true });
     } catch (_) {}
   }
 
   renderVals() {
-    const sel = (id) => () => { this.setState({ selected: id }); try { window.scrollTo(0, 0); } catch (_) {} };
-    const back = () => { this.setState({ selected: null }); try { window.scrollTo(0, 0); } catch (_) {} };
+    const sel = (id) => () => { this.setState({ selected: id }); try { history.replaceState(null, '', '#' + id); window.scrollTo(0, 0); } catch (_) {} };
+    const back = () => { this.setState({ selected: null }); try { history.replaceState(null, '', location.pathname + location.search); window.scrollTo(0, 0); } catch (_) {} };
     const s = this.state.selected;
     const join = (e) => {
       e.preventDefault();
@@ -360,22 +327,19 @@ class Component extends DCLogic {
       } catch (_) {}
       this.setState({ joined: true });
     };
+    const list = (typeof window !== 'undefined' && Array.isArray(window.CADRU_JURNAL)) ? window.CADRU_JURNAL : [];
+    const articles = list.map((x) => ({
+      ...x,
+      meta: x.date + ' · ' + x.category + ' · ' + x.minutes + ' min',
+      open: sel(x.id),
+    }));
+    // isP1, isP2, ...: care articol e deschis. Se deduc din listă, nu se scriu de mână.
+    const open = {};
+    list.forEach((x) => { open['is' + x.id.toUpperCase()] = s === x.id; });
     return {
+      ...open,
+      articles,
       showList: s === null,
-      isP1: s === 'p1',
-      isP2: s === 'p2',
-      isP3: s === 'p3',
-      isP4: s === 'p4',
-      isP5: s === 'p5',
-      isP6: s === 'p6',
-      isP7: s === 'p7',
-      selP1: sel('p1'),
-      selP2: sel('p2'),
-      selP3: sel('p3'),
-      selP4: sel('p4'),
-      selP5: sel('p5'),
-      selP6: sel('p6'),
-      selP7: sel('p7'),
       joined: this.state.joined,
       notJoined: !this.state.joined,
       join,

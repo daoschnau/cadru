@@ -66,6 +66,8 @@ Pagină cu listă de articole (5 carduri) + view de articol individual (state lo
 4. Ce este, de fapt, un contract? (art. 992, cazul emoji-ului 👍 de 82.000$)
 5. AI ≠ automatizare: scriptul de 50 de cenți
 
+**Lista articolelor e în `articles.js`** (de la 1.10.2026): din ea se construiesc cardurile din `Jurnal.dc.html` și anunțurile din secțiunea Jurnal a paginii principale (primele 4). Articol nou = o intrare sus în `articles.js` + textul articolului în `Jurnal.dc.html`, într-un bloc `<sc-if value="{{ isP8 }}">` (id-ul din listă, cu majuscule). Cardurile nu se mai scriu de mână nicăieri. Anunțurile duc direct la articol (`Jurnal.dc.html#p7`).
+
 ## 6. Funcționalitate live
 
 - **Formă waitlist** (apare de 3 ori: hero, secțiunea Jurnal, CTA final) — trimite POST silențios către **Formspree** (`https://formspree.io/f/mykqppvj`, configurat să trimită pe `legaltechtalkmd@gmail.com`), plus salvează local (`localStorage['cadru_waitlist']`) ca fallback/persistență vizuală („ești pe listă" rămâne afișat la refresh).
